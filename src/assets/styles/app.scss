@@ -1,0 +1,63 @@
+/*
+ *
+ *   MatX - Angular Material Design Admin Template
+ *
+ *
+*/
+
+// // Third pirty style files
+
+// // Bootstrap Utility Classes
+@import "bootstrap-utilities/bootstrap-utilities";
+
+// // Sidebar Scroll
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+// // Flag icon
+@import "~flag-icon-css/css/flag-icon.min.css";
+
+// //  star-rating styles (Used in Shop app)
+@import "~css-star-rating/dist/css/star-rating.min.css";
+// // Data Table
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+// // Rich Text Editor
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+// // Drag and Drop
+@import "~dragula/dist/dragula.css";
+// // Calendar
+@import "~angular-calendar/css/angular-calendar.css";
+
+// // User tour
+@import "~hopscotch/dist/css/hopscotch.min.css";
+// // Page loader Topbar
+@import "../../vendor/pace/pace-theme-min.css";
+
+// // Highlightjs theme
+// // @import '~highlight.js/styles/darcula.css';
+// // @import '~highlight.js/styles/github.css';
+@import "~highlight.js/styles/github-gist.css";
+
+// Main Variables File
+@import "scss/variables";
+@import "scss/functions/functions";
+@import "scss/mixins/mixins";
+@import "scss/colors";
+
+@import "scss/animations";
+
+// Open _themes.scss and remove unnecessary theme files
+@import "scss/themes/themes";
+
+@import "scss/utilities/utilities";
+@import "scss/components/components";
+@import "scss/palette";
+
+@import "scss/page-layouts";
+
+// Open _main.scss and keep files which are required for your current layout.
+@import "scss/main/main";
+
+// Open _views.scss and remove unnecessary view related files
+@import "scss/views/views";

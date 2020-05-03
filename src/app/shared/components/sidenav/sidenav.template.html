@@ -1,0 +1,133 @@
+<div class="sidenav-hold">
+  <ul appDropdown class="sidenav">
+    <li *ngFor="let item of menuItems" appDropdownLink routerLinkActive="open">
+      <div class="nav-item-sep" *ngIf="item.type === 'separator'">
+        <span class="text-muted">{{item.name}}</span>
+      </div>
+      <div
+        *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'"
+        class="lvl1"
+      >
+        <a
+          routerLink="/{{item.state}}"
+          appDropdownToggle
+          matRipple
+          *ngIf="item.type === 'link'"
+          routerLinkActive="mat-bg-accent mat-elevation-z1"
+        >
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="item-name lvl1">{{item.name}}</span>
+          <span fxFlex></span>
+          <span
+            class="menuitem-badge mat-bg-{{ badge.color }}"
+            [ngStyle]="{background: badge.color}"
+            *ngFor="let badge of item.badges"
+            >{{ badge.value }}</span
+          >
+        </a>
+        <a
+          [href]="item.state"
+          appDropdownToggle
+          matRipple
+          *ngIf="item.type === 'extLink'"
+          target="_blank"
+          routerLinkActive="mat-bg-accent mat-elevation-z1"
+        >
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="item-name lvl1">{{item.name}}</span>
+          <span fxFlex></span>
+          <span
+            class="menuitem-badge mat-bg-{{ badge.color }}"
+            [ngStyle]="{background: badge.color}"
+            *ngFor="let badge of item.badges"
+            >{{ badge.value }}</span
+          >
+        </a>
+
+        <!-- DropDown -->
+        <a
+          *ngIf="item.type === 'dropDown'"
+          appDropdownToggle
+          matRipple
+          routerLinkActive="mat-bg-accent mat-elevation-z1"
+        >
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="item-name lvl1">{{item.name}}</span>
+          <span fxFlex></span>
+          <span
+            class="menuitem-badge mat-bg-{{ badge.color }}"
+            [ngStyle]="{background: badge.color}"
+            *ngFor="let badge of item.badges"
+            >{{ badge.value }}</span
+          >
+          <mat-icon class="menu-caret">keyboard_arrow_right</mat-icon>
+        </a>
+        <!-- LEVEL 2 -->
+        <ul class="submenu lvl2" appDropdown *ngIf="item.type === 'dropDown'">
+          <li
+            *ngFor="let itemLvL2 of item.sub"
+            appDropdownLink
+            routerLinkActive="open"
+          >
+            <a
+              routerLink="{{item.state ? '/'+item.state : ''}}/{{itemLvL2.state}}"
+              appDropdownToggle
+              *ngIf="itemLvL2.type !== 'dropDown' && itemLvL2.type !== 'extLink' "
+              matRipple
+              routerLinkActive="mat-bg-accent mat-elevation-z1"
+            >
+              <span class="item-name lvl2">{{itemLvL2.name}}</span>
+              <span fxFlex></span>
+            </a>
+
+            <a
+              [href]="itemLvL2.state"
+              appDropdownToggle
+              matRipple
+              *ngIf="itemLvL2.type === 'extLink'"
+              target="_blank"
+              routerLinkActive="mat-bg-accent mat-elevation-z1"
+            >
+              <span class="item-name lvl2">{{itemLvL2.name}}</span>
+            </a>
+
+            <a
+              *ngIf="itemLvL2.type === 'dropDown'"
+              appDropdownToggle
+              matRipple
+              routerLinkActive="mat-bg-accent mat-elevation-z1"
+            >
+              <span class="item-name lvl2">{{itemLvL2.name}}</span>
+              <span fxFlex></span>
+              <mat-icon class="menu-caret">keyboard_arrow_right</mat-icon>
+            </a>
+
+            <!-- LEVEL 3 -->
+            <ul
+              class="submenu lvl3"
+              appDropdown
+              *ngIf="itemLvL2.type === 'dropDown'"
+            >
+              <li
+                *ngFor="let itemLvL3 of itemLvL2.sub"
+                appDropdownLink
+                routerLinkActive="open"
+              >
+                <a
+                  routerLink="{{item.state ? '/'+item.state : ''}}{{itemLvL2.state ? '/'+itemLvL2.state : ''}}/{{itemLvL3.state}}"
+                  appDropdownToggle
+                  matRipple
+                  routerLinkActive="border-radius-4 mat-bg-accent mat-elevation-z1"
+                >
+                  <span class="item-name lvl3"
+                    >{{itemLvL3.name}}</span
+                  >
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,69 @@
+<div class="m-033">
+  <h6 class="mt-0">
+    Search result for "{{ searchService.searchTerm$ | async }}"
+  </h6>
+</div>
+
+<div class="mat-box-shadow m-033">
+  <ngx-datatable
+    class="material bg-white"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50"
+    [limit]="8"
+    [rows]="countries$ | async"
+    [scrollbarH]="true"
+  >
+    <ngx-datatable-column name="flag" [maxWidth]="160">
+      <ng-template ngx-datatable-header-template>
+        Flag
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        <img
+          height="32px"
+          width="auto"
+          style="border-radius: 4px"
+          [src]="value"
+          alt=""
+        />
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="name" [maxWidth]="250">
+      <ng-template ngx-datatable-header-template>
+        Name
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="region" [maxWidth]="250">
+      <ng-template ngx-datatable-header-template>
+        Region
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="capital" [maxWidth]="250">
+      <ng-template ngx-datatable-header-template>
+        Capital
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="population" [maxWidth]="250">
+      <ng-template ngx-datatable-header-template>
+        Population
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

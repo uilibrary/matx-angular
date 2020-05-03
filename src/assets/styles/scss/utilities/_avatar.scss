@@ -1,0 +1,36 @@
+.avatar-xs {
+  width: 24px;
+  height: 24px;
+}
+.avatar-sm {
+  width: 36px;
+  height: 36px;
+}
+.avatar-md {
+  width: 54px;
+  height: 54px;
+}
+
+.avatar-lg {
+  width: 80px;
+  height: 80px;
+}
+
+.face-group {
+  display: flex;
+  flex-direction: row;
+
+  [class*="avatar"] {
+    border: 2px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    &:not(:first-child) {
+      margin-left: -14px !important;
+    }
+  }
+  .number-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

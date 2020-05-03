@@ -1,0 +1,35 @@
+<mat-card class="p-0 mb-1">
+  <mat-card-title class="mat-bg-primary">
+    <div class="card-title-text">Easy to use</div>
+  </mat-card-title>
+  <mat-card-content>
+    <h3>HTML</h3>
+    <p><code>&#x3c;mat-icon&#x3e;3d_rotation&#x3c;/mat-icon&#x3e;</code></p>
+    <h3>Output</h3>
+    <mat-icon>3d_rotation</mat-icon>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="p-0">
+  <mat-card-title class="mat-bg-primary">
+    <div class="card-title-text">Material icon list</div>
+  </mat-card-title>
+  <mat-card-content>
+    <div 
+    fxLayout="row wrap"
+    fxLayoutAlign="start stretch"
+    class="text-center">
+      <div 
+      [style.marginBottom]="'2rem'"
+      [ngStyle.gt-sm]="{'width': '20%'}"
+      [ngStyle.sm]="{'width': '50%'}"
+      [ngStyle.lt-sm]="{'width': '100%'}" 
+      *ngFor="let icon of icons">
+        <mat-icon
+        class="mb-1" 
+        [style.fontSize]="'32px'">{{icon}}</mat-icon> <br>
+        <div>{{icon}}</div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

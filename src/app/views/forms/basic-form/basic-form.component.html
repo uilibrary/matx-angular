@@ -1,0 +1,175 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">Form validation</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="basicForm">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="username"
+                            formControlName="username"
+                            placeholder="Username (Min Length: 4, Max Length: 9)"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['username'].hasError('minlength') && basicForm.controls['username'].touched" 
+                        class="form-error-msg"> Username require at least {{basicForm.controls['username'].errors.minlength.requiredLength}} characters </small>
+                        <small 
+                        *ngIf="basicForm.controls['username'].hasError('maxlength') && basicForm.controls['username'].touched" 
+                        class="form-error-msg"> Username can not contain more than {{basicForm.controls['username'].errors.maxlength.requiredLength}} characters </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="firstname"
+                            formControlName="firstname"
+                            placeholder="First name"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['firstname'].hasError('required') && basicForm.controls['firstname'].touched" 
+                        class="form-error-msg"> First name is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            type="email"
+                            name="email"
+                            formControlName="email"
+                            placeholder="Your Email"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['email'].hasError('required') && basicForm.controls['email'].touched" 
+                        class="form-error-msg"> Email is required </small>
+                        <small 
+                        *ngIf="basicForm.controls['email'].hasError('email') && basicForm.controls['email'].touched" 
+                        class="form-error-msg"> Invaild email address </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            name="website"
+                            formControlName="website"
+                            placeholder="Your Website (http://mhrafi.com)"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['website'].hasError('url') && basicForm.controls['website'].touched" 
+                        class="form-error-msg"> Invaild web address </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="date"
+                            formControlName="date"
+                            placeholder="Date" 
+                            [matDatepicker]="appDatepicker">
+                            
+                            <mat-datepicker-toggle matSuffix [for]="appDatepicker"></mat-datepicker-toggle>
+                        </mat-form-field>
+                        <mat-datepicker #appDatepicker></mat-datepicker>
+                    </div>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-xs="50">
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="cardno"
+                            formControlName="cardno"
+                            placeholder="Credit card number">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['cardno'].hasError('creditCard') && basicForm.controls['cardno'].touched" 
+                        class="form-error-msg"> Invaild card number </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="phone"
+                            formControlName="phone"
+                            placeholder="Phone number">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['phone'].hasError('phone') && basicForm.controls['phone'].touched" 
+                        class="form-error-msg"> Invaild phone number </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input 
+                            type="password"
+                            name="password"
+                            matInput
+                            formControlName="password"
+                            placeholder="Password" 
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['password'].hasError('required') && basicForm.controls['password'].touched" 
+                        class="form-error-msg"> Password is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            matInput
+                            appEqualValidator="password"
+                            formControlName="confirmPassword"
+                            placeholder="Confirm Password"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="basicForm.controls['confirmPassword'].hasError('equalTo')" 
+                        class="form-error-msg"> Password mismatch </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <Label>Gender*</Label>
+                        <mat-radio-group 
+                        name="gender" 
+                        formControlName="gender">
+                            <mat-radio-button value="male">Male</mat-radio-button>
+                            <mat-radio-button value="female">Female</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    
+                    <div class="pb-1 pt-05">
+                        <mat-checkbox
+                        name="agreed"
+                        formControlName="agreed" 
+                        class="pb-1">I have read and agree to the terms of service.</mat-checkbox>
+
+                        <small 
+                            *ngIf="basicForm.controls['agreed'].hasError('agreed') && basicForm.controls['agreed'].touched" 
+                            class="form-error-msg"> You must agree to the terms and conditions </small>
+                    </div>
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="basicForm.invalid">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+

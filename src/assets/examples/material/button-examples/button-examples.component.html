@@ -1,0 +1,43 @@
+<div class="pb-1">
+  <p>Basic buttons</p>
+  <button mat-button class="mr-1">Default test</button>
+  <button mat-button color="primary" class="mr-1">Primary</button>
+  <button mat-button color="accent" class="mr-1">Accent</button>
+  <button mat-button color="warn" class="mr-1">Warn</button>
+  <button mat-button disabled class="mr-1">Disabled</button>
+</div>
+
+<div class="pb-1">
+  <p>Raised buttons</p>
+  <button mat-raised-button class="mr-1">Default</button>
+  <button mat-raised-button color="primary" class="mr-1">Primary</button>
+  <button mat-raised-button color="accent" class="mr-1">Accent</button>
+  <button mat-raised-button color="warn" class="mr-1">Warn</button>
+  <button mat-raised-button disabled class="mr-1">Disabled</button>
+</div>
+
+<div class="pb-1">
+  <p>Fab buttons</p>
+  <button mat-fab color="warn" class="mr-1"><mat-icon>create</mat-icon></button>
+  <button mat-mini-fab color="warn" class="mr-1">
+    <mat-icon>create</mat-icon>
+  </button>
+</div>
+
+<div class="pb-1">
+  <p>Toggle buttons</p>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="justify" disabled>
+      <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

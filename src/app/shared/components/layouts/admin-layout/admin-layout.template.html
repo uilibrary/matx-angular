@@ -1,0 +1,64 @@
+<div class="app-admin-wrap" dir='ltr'>
+
+  <!-- Main Container -->
+  <mat-sidenav-container 
+  [dir]='layoutConf.dir'
+  class="app-admin-container app-side-nav-container mat-drawer-transition sidebar-{{layoutConf?.sidebarColor}} topbar-{{layoutConf?.topbarColor}} footer-{{layoutConf?.footerColor}}"
+  [ngClass]="adminContainerClasses">
+    <mat-sidenav-content>
+    <!-- SIDEBAR -->
+    <!-- ONLY REQUIRED FOR **SIDE** NAVIGATION LAYOUT -->
+    <app-sidebar-side 
+    *ngIf="layoutConf.navigationPos === 'side'" 
+    (mouseenter)="sidebarMouseenter($event)"
+    (mouseleave)="sidebarMouseleave($event)"
+    ></app-sidebar-side>
+    
+    <!-- App content -->
+    <div class="main-content-wrap" id="main-content-wrap" [perfectScrollbar]="" [disabled]="layoutConf.topbarFixed || !layoutConf.perfectScrollbar">
+      <!-- Header for side navigation layout -->
+      <!-- ONLY REQUIRED FOR **SIDE** NAVIGATION LAYOUT -->
+      <app-header-side 
+        *ngIf="layoutConf.navigationPos === 'side'"
+        [notificPanel]="notificationPanel">
+      </app-header-side>
+
+      <div class="rightside-content-hold" id="rightside-content-hold" [perfectScrollbar]="scrollConfig" [disabled]="!layoutConf.topbarFixed || !layoutConf.perfectScrollbar">
+        <!-- View Loader -->
+        <div class="view-loader" *ngIf="isModuleLoading" style="position:fixed;"
+        fxLayout="column" fxLayoutAlign="center center">
+          <div class="spinner">
+            <div class="double-bounce1 mat-bg-accent"></div>
+            <div class="double-bounce2 mat-bg-primary"></div>
+          </div>
+        </div>
+        <!-- Breadcrumb -->
+        <app-breadcrumb></app-breadcrumb>
+        <!-- View outlet -->
+        <router-outlet></router-outlet>
+        <span class="m-auto" *ngIf="!layoutConf.footerFixed"></span>
+        <app-footer *ngIf="!layoutConf.footerFixed" style="display: block; margin: 0 -.333rem -.33rem"></app-footer>
+      </div>
+      <span class="m-auto" *ngIf="layoutConf.footerFixed"></span>
+      <app-footer *ngIf="layoutConf.footerFixed"></app-footer>
+    </div>
+    <!-- View overlay for mobile navigation -->
+    <div class="sidebar-backdrop"
+    [ngClass]="{'visible': layoutConf.sidebarStyle !== 'closed' && layoutConf.isMobile}"
+    (click)="closeSidebar()"></div>
+    </mat-sidenav-content>
+
+
+    <!-- Notificaation bar -->
+    <mat-sidenav #notificationPanel mode="over" class="" position="end">
+      <div class="nofication-panel" fxLayout="column">
+        <app-notifications [notificPanel]="notificationPanel"></app-notifications>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
+
+
+<!-- Only for demo purpose -->
+<!-- Remove this from your production version -->
+<app-customizer></app-customizer>

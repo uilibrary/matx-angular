@@ -1,0 +1,12 @@
+<button mat-button [color]="color" class="button-loading {{btnClass}}" [type]="type" [disabled]="loading" 
+[ngClass]="{
+    loading: loading,
+    'mat-button': !raised,
+    'mat-raised-button': raised
+  }">
+    <div class="btn-spinner" *ngIf="loading"></div>
+    <span *ngIf="!loading">
+        <ng-content></ng-content>
+    </span>
+    <span *ngIf="loading">{{loadingText}}</span>
+</button>

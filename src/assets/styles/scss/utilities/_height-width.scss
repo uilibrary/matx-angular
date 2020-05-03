@@ -1,0 +1,66 @@
+$lenghts: (
+  0: 0px,
+  // 10: 10px,
+    // 20: 20px,
+    // 30: 30px,
+    40: 40px,
+  // 50: 50px,
+    // 60: 60px,
+    // 70: 70px,
+    80: 80px,
+  // 90: 90px,
+    // 100: 100px,
+    // 110: 110px,
+    120: 120px,
+  // 130: 130px,
+    160: 160px,
+  200: 200px,
+  240: 240px,
+  260: 260px,
+  300: 300px
+);
+
+@each $name, $value in $lenghts {
+  .height-#{$name}px {
+    height: $value;
+  }
+  .width-#{$name}px {
+    width: $value;
+  }
+}
+
+.h-100 {
+  height: 100%;
+}
+.height-100 {
+  height: 100%;
+}
+.width-100 {
+  width: 100%;
+}
+.min-w-600 {
+  min-width: 600px !important;
+}
+
+// View height classes
+.height-100vh {
+  height: 100vh;
+}
+.height-100vh-70px {
+  height: calc(100vh - 70px);
+}
+.height-100vh-80px {
+  height: calc(100vh - 80px);
+}
+.height-100vh-280px {
+  height: calc(100vh - 280px);
+}
+
+.small-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px !important;
+  width: 16px !important;
+  border-radius: 50%;
+}

@@ -1,0 +1,94 @@
+<div
+  [perfectScrollbar]="{}"
+  class="height-100vh signup4-wrap"
+  fxLayout="row wrap"
+  fxLayoutAlign="center center"
+>
+  <div
+    class="signup4-container mat-elevation-z4 white"
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="start stretch"
+    fxFlex="60"
+    fxFlex.xs="94"
+    fxFlex.sm="80"
+    [@animate]="{
+      value: '*',
+      params: { y: '40px', opacity: '0', delay: '100ms', duration: '400ms' }
+    }"
+  >
+    <!-- Left Side content -->
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      class="signup4-header"
+      fxFlex="40"
+    >
+      <div class="" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img
+          width="200px"
+          src="assets/images/illustrations/lighthouse.svg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- Right side content -->
+    <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="center center">
+      <form
+        [formGroup]="signinForm"
+        class="signup4-form grey-100"
+        (ngSubmit)="signin()"
+      >
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="username"
+            type="text"
+            name="username"
+            placeholder="Username"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            name="password"
+            placeholder="********"
+          />
+        </mat-form-field>
+
+        <mat-checkbox formControlName="rememberMe"
+          >Remember this computer</mat-checkbox
+        >
+
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="start center"
+          style="margin-top: 20px;"
+        >
+          <button-loading [loading]="loading" loadingText="Signing in..." class="mr-16" color="primary"
+            >Sign in</button-loading
+          >
+          <span class="px-16">or</span>
+          <a
+            class="font-weight-bold mat-color-primary"
+            routerLink="/sessions/signup"
+            >Sign Up</a
+          >
+        </div>
+
+        <!-- <div fxLayout="row wrap" fxLayoutAlign="space-between center" style="margin-top: 20px">
+          <span>or connect with </span>
+          <div>
+            icons goes here
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>

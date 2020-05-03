@@ -1,0 +1,92 @@
+<div class="sidebar-panel">
+  <div
+    id="scroll-area"
+    [perfectScrollbar]
+    class="navigation-hold"
+    fxLayout="column"
+  >
+    <div class="sidebar-hold">
+      <!-- App Logo -->
+      <div class="branding px-20">
+        <img src="assets/images/logo.png" alt="" class="app-logo" />
+        <span class="app-logo-text">MatX</span>
+
+        <span
+          style="margin: auto"
+          *ngIf="layoutConf.sidebarStyle !== 'compact'"
+        ></span>
+        <mat-slide-toggle
+          fxHide.lt-md
+          (change)="toggleCollapse()"
+          [checked]="!layoutConf.sidebarCompactToggle"
+          *ngIf="layoutConf.sidebarStyle !== 'compact'"
+        ></mat-slide-toggle>
+      </div>
+
+      <!-- Sidebar user -->
+      <div class="app-user">
+        <div class="app-user-photo">
+          <img src="assets/images/face-7.jpg" class="mat-elevation-z1" alt="" />
+        </div>
+        <div class="ml-16">
+          <span class="app-user-name mb-4">
+            Watson Joyce
+          </span>
+          <!-- Small buttons -->
+          <div class="app-user-controls">
+            <button
+              class="text-muted"
+              mat-icon-button
+              mat-xs-button
+              [matMenuTriggerFor]="appUserMenu"
+            >
+              <mat-icon>settings</mat-icon>
+            </button>
+            <button
+              class="text-muted"
+              mat-icon-button
+              mat-xs-button
+              matTooltip="Inbox"
+              routerLink="/inbox"
+            >
+              <mat-icon>email</mat-icon>
+            </button>
+            <button
+              class="text-muted"
+              mat-icon-button
+              mat-xs-button
+              matTooltip="Sign Out"
+              (click)="jwtAuth.signout()"
+            >
+              <mat-icon>exit_to_app</mat-icon>
+            </button>
+            <mat-menu #appUserMenu="matMenu">
+              <button mat-menu-item routerLink="/profile/overview">
+                <mat-icon>account_box</mat-icon>
+                <span>Profile</span>
+              </button>
+              <button mat-menu-item routerLink="/profile/settings">
+                <mat-icon>settings</mat-icon>
+                <span>Account Settings</span>
+              </button>
+              <button mat-menu-item routerLink="/calendar">
+                <mat-icon>date_range</mat-icon>
+                <span>Calendar</span>
+              </button>
+              <button mat-menu-item (click)="jwtAuth.signout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Sign out</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <app-sidenav
+        [items]="menuItems"
+        [hasIconMenu]="hasIconTypeMenuItem"
+        [iconMenuTitle]="iconTypeMenuTitle"
+      ></app-sidenav>
+    </div>
+  </div>
+</div>

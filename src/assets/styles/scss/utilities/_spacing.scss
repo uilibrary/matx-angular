@@ -1,0 +1,258 @@
+$spaces: (
+  0: 0px,
+  4: 4px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  28: 28px,
+  32: 32px,
+  36: 36px,
+  40: 40px,
+  44: 44px,
+  48: 48px,
+  96: 96px
+);
+
+@each $name, $value in $spaces {
+  .m-#{$name} {
+    margin: $value !important;
+  }
+  .mt-#{$name} {
+    margin-top: $value !important;
+  }
+  .mr-#{$name} {
+    margin-right: $value !important;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value !important;
+  }
+  .ml-#{$name} {
+    margin-left: $value !important;
+  }
+  .mx-#{$name} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+  .my-#{$name} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .p-#{$name} {
+    padding: $value !important;
+  }
+  .pt-#{$name} {
+    padding-top: $value !important;
+  }
+  .pr-#{$name} {
+    padding-right: $value !important;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value !important;
+  }
+  .pl-#{$name} {
+    padding-left: $value !important;
+  }
+  .px-#{$name} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+  .py-#{$name} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}
+
+.m-auto {
+  margin: auto !important;
+}
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+// Old Spacing classes
+
+.m-1 {
+  margin: 1rem !important;
+}
+.mt-1 {
+  margin-top: 1rem !important;
+}
+.mt-05 {
+  margin-top: 0.5rem !important;
+}
+.mt-0 {
+  margin-top: 0 !important;
+}
+.mr-1 {
+  margin-right: 1rem !important;
+}
+.mr-05 {
+  margin-right: 0.5rem !important;
+}
+.mr-0 {
+  margin-right: 0 !important;
+}
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-05 {
+  margin-bottom: 0.5rem !important;
+}
+.ml-1 {
+  margin-left: 1rem !important;
+}
+.ml-05 {
+  margin-left: 0.5rem !important;
+}
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.m-033 {
+  margin: 0.333333rem !important;
+}
+
+.pt-1 {
+  padding-top: 1rem !important;
+}
+.pt-0 {
+  padding-top: 0 !important;
+}
+.pt-05 {
+  padding-top: 0.5rem !important;
+}
+.pr-1 {
+  padding-right: 1rem !important;
+}
+.pr-0 {
+  padding-right: 0 !important;
+}
+.pr-05 {
+  padding-right: 0.5rem !important;
+}
+.pb-1 {
+  padding-bottom: 1rem !important;
+}
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+.pb-05 {
+  padding-bottom: 0.5rem !important;
+}
+.pl-1 {
+  padding-left: 1rem !important;
+}
+.pl-0 {
+  padding-left: 0 !important;
+}
+.pl-05 {
+  padding-left: 0.5rem !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+.p-1 {
+  padding: 1rem !important;
+}
+.p-05 {
+  padding: 0.5rem !important;
+}
+
+[dir="rtl"] {
+  .pr-1 {
+    padding-left: 1rem;
+    padding-right: 0 !important;
+  }
+  .mr-1 {
+    margin-right: 0 !important;
+    margin-left: 1rem;
+  }
+}
+
+// negative margin classes
+.mx--033 {
+  margin-left: -0.333333rem !important;
+  margin-right: -0.333333rem !important;
+}
+.mt--033 {
+  margin-top: -0.333333rem !important;
+}
+.mt--72 {
+  margin-top: -72px !important;
+}
+
+.px-80 {
+  padding-right: 80px;
+  padding-left: 80px;
+  @media screen and (max-width: 460px) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+.px-sm-30 {
+  padding: 0px 30px;
+  @include media(767px) {
+    padding: 0px 16px;
+  }
+}
+.p-sm-24 {
+  padding: 24px !important;
+  @include media(767px) {
+    padding: 16px !important;
+  }
+}
+.px-sm-24 {
+  padding: 0px 24px !important;
+  @include media(767px) {
+    padding: 0px 16px !important;
+  }
+}
+.pt-sm-24 {
+  padding-top: 24px !important;
+  @include media(767px) {
+    padding-top: 16px !important;
+  }
+}
+.pl-sm-24 {
+  padding-left: 24px !important;
+  @include media(767px) {
+    padding: 12px !important;
+  }
+}
+
+.m-auto {
+  margin: auto !important;
+}
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.m-sm-30 {
+  margin: 30px;
+  @include media(767px) {
+    margin: 16px;
+  }
+}
+.mb-sm-30 {
+  margin-bottom: 30px;
+  @include media(767px) {
+    margin-bottom: 16px;
+  }
+}

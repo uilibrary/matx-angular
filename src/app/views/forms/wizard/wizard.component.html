@@ -1,0 +1,91 @@
+<mat-card class="p-0">
+  <mat-card-title class="">
+    <div class="card-title-text">Horizontal</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-horizontal-stepper [linear]="true">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field class="pt-1 pb-1">
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field class="pt-1 pb-1">
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div fxLayout="row">
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+            <span fxFlex="8px"></span>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <div>
+          <mat-icon class="pt-1" [style.fontSize]="'36px'">check</mat-icon>
+        </div>
+        <div class="pb-1 mb-1"> You Are Done.</div>
+        <div fxLayout="row">
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          <span fxFlex="8px"></span>
+          <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="p-0">
+  <mat-card-title class="">
+    <div class="card-title-text">Verticle</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-vertical-stepper [linear]="true">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div fxLayout="row">
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+            <span fxFlex="8px"></span>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <div>
+          <mat-icon class="pt-1" [style.fontSize]="'36px'">check</mat-icon>
+        </div>
+        <div class="pb-1 mb-1"> You Are Done.</div>
+        <div>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </mat-card-content>
+</mat-card>

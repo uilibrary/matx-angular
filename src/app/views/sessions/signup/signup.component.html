@@ -1,0 +1,85 @@
+<div
+  [perfectScrollbar]="{}"
+  class="height-100vh signup4-wrap"
+  fxLayout="row wrap"
+  fxLayoutAlign="center center"
+>
+  <div
+    class="signup4-container mat-elevation-z4"
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="start stretch"
+    fxFlex="60"
+    fxFlex.xs="94"
+    fxFlex.sm="80"
+    [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'100ms', duration: '400ms'}}"
+  >
+
+  <!-- Left Side content -->
+  <div fxLayout="column" fxLayoutAlign="center center" 
+  class="signup4-header grey-200" fxFlex="40">
+
+    <div class="" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img width="200px" src="assets/images/illustrations/posting_photo.svg" alt="">
+    </div>
+
+  </div>
+
+    <!-- Right side content -->
+   <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="center center">
+    <form  [formGroup]="signupForm" class="signup4-form white" (ngSubmit)="onSubmit()">
+        
+      <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            formControlName="username"
+            type="text"
+            name="username"
+            placeholder="Username"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            name="password"
+            placeholder="********"
+          />
+        </mat-form-field>
+
+        <mat-checkbox formControlName="agreed"
+        >I agree with terms and condtions</mat-checkbox
+      >
+      
+      <div fxLayout="row wrap" fxLayoutAlign="start center" style="margin-top: 20px;">
+        <button mat-flat-button color="primary">Sign Up</button>
+        <span style="padding: 0px 8px 0px 16px;">or</span>
+        <a class="font-weight-bold mat-color-primary" routerLink="/sessions/signin">Sign In</a>
+      </div>
+
+      <!-- <div fxLayout="row wrap" fxLayoutAlign="space-between center" style="margin-top: 20px">
+          <span>or connect with </span>
+          <div>
+            icons goes here
+          </div>
+        </div> -->
+
+    </form>
+   </div>
+  </div>
+</div>
