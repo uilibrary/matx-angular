@@ -44,10 +44,10 @@ export const rootRouterConfig: Routes = [
         data: { title: "Material Coponents", breadcrumb: "Material Coponents" },
       },
       {
-        path: "others",
+        path: "pages",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Others", breadcrumb: "Others" },
+        data: { title: "Pages", breadcrumb: "Pages" },
       },
       {
         path: "tables",

@@ -47,8 +47,7 @@ export class LayoutService {
         sidebarColor: "slate", // http://demos.ui-lib.com/matx-doc/#matx-colors
         sidebarCompactToggle: false, // applied when "sidebarStyle" is "compact"
         useBreadcrumb: true,
-        topbarFixed: false,
-        footerFixed: false,
+        footerFixed: true,
         topbarColor: "purple", // http://demos.ui-lib.com/matx-doc/#matx-colors
         footerColor: "slate", // http://demos.ui-lib.com/matx-doc/#matx-colors
         matTheme: "matx-light-purple", // matx-blue, matx-navy, matx-light-purple, matx-dark-purple, matx-dark-pink

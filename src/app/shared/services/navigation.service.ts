@@ -37,6 +37,32 @@ export class NavigationService {
       state: "dashboard/analytics"
     },
     {
+      name: "PAGES",
+      type: "separator"
+    },
+    {
+      name: "Sessions",
+      type: "dropDown",
+      tooltip: "Pages",
+      icon: "how_to_reg",
+      state: "sessions",
+      badges: [{color: 'primary', value: '6'}],
+      sub: [
+        { name: "Sign up", state: "signup" },
+        { name: "Sign in", state: "signin" },
+        { name: "Forgot", state: "forgot-password" },
+        { name: "Lock screen", state: "lockscreen" },
+        { name: "Not Found", state: "404" },
+        { name: "Error", state: "error" }
+      ]
+    },
+    {
+      name: "Blank Page",
+      type: "link",
+      icon: "check_box_outline_blank",
+      state: "pages/blank"
+    },
+    {
       name: "COMPONENTS",
       type: "separator"
     },
@@ -61,29 +87,14 @@ export class NavigationService {
       state: "tables/mat-table"
     },
     {
-      name: "Material Compoents",
+      name: "Material Kit",
       type: "link",
-      icon: "dashboard",
+      icon: "move_to_inbox",
       state: "mat-kits"
     },
     {
-      name: "PAGES",
+      name: "OTHERS",
       type: "separator"
-    },
-    {
-      name: "Sessions",
-      type: "dropDown",
-      tooltip: "Pages",
-      icon: "view_carousel",
-      state: "sessions",
-      sub: [
-        { name: "Sign up", state: "signup" },
-        { name: "Sign in", state: "signin" },
-        { name: "Forgot", state: "forgot-password" },
-        { name: "Lock screen", state: "lockscreen" },
-        { name: "Not Found", state: "404" },
-        { name: "Error", state: "error" }
-      ]
     },
     {
       name: "Icons",
@@ -113,25 +124,16 @@ export class NavigationService {
       ]
     },
     {
-      name: "Blank Page",
-      type: "link",
-      tooltip: "Others",
-      icon: "blur_on",
-      state: "others/blank"
-    },
-    {
       name: "Documentation",
       type: "extLink",
-      tooltip: "Documentation",
       icon: "library_books",
-      state: "http://demos.ui-lib.com/matx-doc/"
+      state: "http://demos.ui-lib.com/matx-angular-doc/"
     },
     {
       name: "Upgrade to PRO",
       type: "extLink",
-      tooltip: "Documentation",
-      icon: "library_books",
-      state: "http://demos.ui-lib.com/matx-doc/"
+      icon: "present_to_all",
+      state: "http://matx-angular.ui-lib.com"
     }
   ];
 
