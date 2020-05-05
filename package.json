@@ -1,7 +1,6 @@
 {
   "name": "matx",
-  "version": "8.0.0",
-  "license": "https://themeforest.net/licenses/terms/regular",
+  "version": "9.0.0",
   "scripts": {
     "ng": "ng",
     "start": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve -o",
@@ -9,7 +8,8 @@
     "build": "ng build --prod=true --aot=true --extractCss=true --optimization=true --environment=prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ngh": "ng build --prod --base-href 'https://uilibrary.github.io/matx-angular/' && ngh"
   },
   "private": true,
   "dependencies": {

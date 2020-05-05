@@ -70,7 +70,7 @@ export class CustomizerService {
   layoutOptions = [
     {
       name: "Vertical Nav",
-      thumbnail: "/assets/images/screenshots/layout1-customizer.png",
+      thumbnail: "assets/images/screenshots/layout1-customizer.png",
       options: {
         navigationPos: "side",
         sidebarColor: "white",
@@ -82,7 +82,7 @@ export class CustomizerService {
     },
     {
       name: "Dark Sidebar",
-      thumbnail: "/assets/images/screenshots/layout1-blue-customizer.png",
+      thumbnail: "assets/images/screenshots/layout1-blue-customizer.png",
       options: {
         navigationPos: "side",
         sidebarColor: "slate",
@@ -94,7 +94,7 @@ export class CustomizerService {
     },
     {
       name: "Night Mode",
-      thumbnail: "/assets/images/screenshots/layout3-customizer.png",
+      thumbnail: "assets/images/screenshots/layout3-customizer.png",
       options: {
         sidebarColor: "slate",
         sidebarCompactToggle: false,
