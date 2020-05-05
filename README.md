@@ -19,6 +19,13 @@ Matx Angular Admin can be used to build any kind of web application such as ERP,
 * Predefined multiple Light & Dark themes
 * Responsive layout for any screen size
 * Multilevel menu
+* Session pages
+  * Signin
+  * Signup
+  * Forgot password
+  * Lockscreen
+  * 404
+  * Server error
 
 Documentation: [MatX Doc](http://demos.ui-lib.com/matx-angular-doc/)
 
