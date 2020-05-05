@@ -1,0 +1,6 @@
+.example-chip-list {
+    width: 100%;
+  }
+  .mat-chip:not(.mat-basic-chip) {
+    display: flex;
+  }  

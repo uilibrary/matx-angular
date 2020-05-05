@@ -1,0 +1,22 @@
+/* 
+* REQUIRED STYLES 
+*/
+@import "scaffolding";
+@import "typography";
+@import "layout";
+@import "header";
+@import "sidenav";
+@import "footer";
+/*
+* ALTERNATIVE STYLES
+*/
+@import "breadcrumb"; // REQUIRED ONLY FOR BREADCRUMBS
+@import "notifications"; // REQUIRED ONLY FOR NOTIFICATIONS
+
+@import "sidebar"; // REQUIRED ONLY FOR SIDE NAVIGATION LAYOUT
+@import "header-side"; // REQUIRED ONLY FOR SIDE NAVIGATION LAYOUT
+
+@import "topnav"; // REQUIRED ONLY FOR TOP NAVIGATION LAYOUT
+@import "header-top"; // REQUIRED ONLY FOR TOP NAVIGATION LAYOUT
+
+

@@ -1,0 +1,1 @@
+<mat-checkbox>Check me!</mat-checkbox>

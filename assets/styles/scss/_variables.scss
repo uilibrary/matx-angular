@@ -1,0 +1,32 @@
+// General
+$transitionDuration: 300ms !default;
+$gutter: 1rem !default;
+$transitionTiming: cubic-bezier(0.35, 0, 0.25, 1);
+$sidebarTrnTime: 0.3s;
+
+// Widths
+$sidebar-width: 16.25rem !default;
+$compact-sidebar-width: 64px !default;
+$compact-big-sidebar-width: 150px !default;
+
+$sidebar-navigation-icon-size: 18px;
+
+// Typography
+$font-family-base: Roboto, "Helvetica Neue", sans-serif !default;
+$font-size-base: 0.875rem;
+$font-weight-base: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+
+$font-size-h1: 24px !default;
+$font-size-h2: 20px !default;
+$font-size-h3: 16px !default;
+$font-size-h4: 15px !default;
+$font-size-h5: 13px !default;
+$font-size-h6: 12px !default;
+
+$headings-margin-bottom: (1rem / 2) !default;
+$headings-font-family: inherit !default;
+$headings-font-weight: 400 !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;

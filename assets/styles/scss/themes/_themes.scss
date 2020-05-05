@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Keep atleast one file
+@import "matx-navy";
+@import "matx-blue";
+@import "matx-light-purple";
+@import "matx-dark-purple";
+@import "matx-dark-pink";
+
+$background: map-get($matx-theme, background);
+$foreground: map-get($matx-theme, foreground);
