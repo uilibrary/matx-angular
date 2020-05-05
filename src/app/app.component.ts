@@ -14,7 +14,7 @@ import { LayoutService } from './shared/services/layout.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  appTitle = 'MatX';
+  appTitle = 'MatX Angular Dashboard';
   pageTitle = '';
 
   constructor(
