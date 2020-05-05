@@ -1,4 +1,4 @@
-# [MatX Angular Material Design Admin Dashboard](https://ui-lib.com/downloads/matx-angular-material-design-admin-dashboard)
+# [MatX Angular Material Design Admin Dashboard](https://ui-lib.com/downloads/matx-angular-dashboard)
 ![Matx Angular Material Admin](https://ui-lib.com/wp-content/uploads/edd/2020/05/matx-angular-800x600.png)
 
 Matx Angular admin dashboard is built with Angular official Material design component library and Styles are written in SCSS.
