@@ -1,6 +1,6 @@
 import { Injectable, Inject, Renderer2, RendererFactory2, EventEmitter } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import  { getQueryParam } from '../helpers/url.helper';
+import { getQueryParam } from '../helpers/url.helper';
 
 export interface ITheme {
   name: string,
@@ -10,29 +10,20 @@ export interface ITheme {
 
 @Injectable()
 export class ThemeService {
-  public onThemeChange :EventEmitter<ITheme> = new EventEmitter();
+  public onThemeChange: EventEmitter<ITheme> = new EventEmitter();
 
-  public matxThemes :ITheme[]  = [{
-    "name": "matx-dark-purple",
-    "baseColor": "#7367f0",
-    "isActive": false
-  }, {
-    "name": "matx-dark-pink",
-    "baseColor": "#e91e63",
-    "isActive": false
-  }, {
-    "name": "matx-blue",
-    "baseColor": "#1976d2",
-    "isActive": true
-  }, {
-    "name": "matx-light-purple",
-    "baseColor": "#7367f0",
-    "isActive": false
-  }, {
-    "name": "matx-navy",
-    "baseColor": "#10174c",
-    "isActive": false 
+  public matxThemes: ITheme[]  = [
+  {
+    'name': 'matx-navy',
+    'baseColor': '#10174c',
+    'isActive': false
+  },
+  {
+    'name': 'matx-navy-dark',
+    'baseColor': '#0081ff',
+    'isActive': false
   }];
+
   public activatedTheme: ITheme;
   private renderer: Renderer2;
   constructor(
@@ -45,7 +36,7 @@ export class ThemeService {
   // Invoked in AppComponent and apply 'activatedTheme' on startup
   applyMatTheme( themeName: string) {
 
-    this.activatedTheme = this.matxThemes.find(t => t.name === themeName); 
+    this.activatedTheme = this.matxThemes.find(t => t.name === themeName);
     this.flipActiveFlag(themeName);
 
     // *********** ONLY FOR DEMO **********
@@ -64,10 +55,10 @@ export class ThemeService {
     this.onThemeChange.emit(this.activatedTheme);
   }
 
-  flipActiveFlag(themeName:string) {
+  flipActiveFlag(themeName: string) {
     this.matxThemes.forEach((t) => {
       t.isActive = false;
-      if(t.name === themeName) {
+      if (t.name === themeName) {
         t.isActive = true;
         this.activatedTheme = t;
       }
@@ -76,12 +67,12 @@ export class ThemeService {
 
   // *********** ONLY FOR DEMO **********
   setThemeFromQuery() {
-    let themeStr = getQueryParam('theme');
+    const themeStr = getQueryParam('theme');
     try {
       this.activatedTheme = JSON.parse(themeStr);
       console.log(this.activatedTheme);
-      
+
       this.flipActiveFlag(this.activatedTheme.name);
-    } catch(e) {}
+    } catch (e) {}
   }
 }

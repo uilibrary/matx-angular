@@ -1,0 +1,203 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+@import 'matx.theme';
+
+/* Include the core styles */
+@include mat.core();
+
+/* Create style without colors */
+@include mat.all-component-themes(
+  (
+    color: null,
+    density: -2,
+    typography:
+      mat.define-typography-config(
+        $font-family: 'Archivo',
+        $display-4: mat.define-typography-level(112px, 112px, 400, 'Archivo', -0.0134em),
+        $display-3: mat.define-typography-level(56px, 56px, 400, 'Archivo', -0.0089em),
+        $display-2: mat.define-typography-level(45px, 48px, 400, 'Archivo', 0em),
+        $display-1: mat.define-typography-level(34px, 40px, 400, 'Archivo', 0.0074em),
+        $headline: mat.define-typography-level(24px, 32px, 400, 'Archivo', 0em),
+        $title: mat.define-typography-level(20px, 32px, 500, 'Archivo', 0.0075em),
+        $subheading-2: mat.define-typography-level(16px, 28px, 400, 'Archivo', 0.0094em),
+        $subheading-1: mat.define-typography-level(15px, 24px, 500, 'Archivo', 0.0067em),
+        $body-2: mat.define-typography-level(14px, 24px, 500, 'Archivo', 0.0179em),
+        $body-1: mat.define-typography-level(14px, 20px, 400, 'Archivo', 0.0179em),
+        $button: mat.define-typography-level(14px, 14px, 500, 'Archivo', 0.0893em),
+        $caption: mat.define-typography-level(12px, 20px, 400, 'Archivo', 0.0333em),
+        $input: mat.define-typography-level(inherit, 1.125, 400, 'Archivo', 1.5px)
+      ),
+  )
+);
+
+/* Generate Primary, Accent and Warn palettes */
+$default-primary-palette: (
+  main: #0081ff,
+  lighter: #b3d9ff,
+  darker: #0064ff,
+  200: #0081ff,
+  contrast: (
+    main: white,
+    lighter: rgba(black, 0.87),
+    darker: white,
+  ),
+);
+$default-theme-primary: mat.define-palette($default-primary-palette, main, lighter, darker);
+
+$default-accent-palette: (
+  main: #ff8a48,
+  lighter: #ffdcc8,
+  darker: #ff6d30,
+  200: #ff8a48,
+  contrast: (
+    main: rgba(black, 0.87),
+    lighter: rgba(black, 0.87),
+    darker: rgba(black, 0.87),
+  ),
+);
+$default-theme-accent: mat.define-palette($default-accent-palette, main, lighter, darker);
+
+$default-warn-palette: (
+  main: #ff3d57,
+  lighter: #ffc5cd,
+  darker: #ff273c,
+  200: #ff3d57,
+  contrast: (
+    main: white,
+    lighter: rgba(black, 0.87),
+    darker: white,
+  ),
+);
+$default-theme-warn: mat.define-palette($default-warn-palette, main, lighter, darker);
+
+/* Create Light theme. */
+.matx-navy {
+  // Foreground colors
+  $dark-text: #000000;
+  $dark-primary-text: $body-color;
+  $dark-accent-text: rgba(rgba(black, 0.87), 0.54);
+  $dark-disabled-text: rgba(rgba(black, 0.87), 0.38);
+  $dark-dividers: rgba(rgba(black, 0.87), 0.12);
+  $dark-focused: rgba(rgba(black, 0.87), 0.12);
+  // Background colors
+  $light-background: #fafafa;
+  $light-bg-darker-5: darken($light-background, 5%);
+  $light-bg-darker-10: darken($light-background, 10%);
+  $light-bg-darker-20: darken($light-background, 20%);
+  $light-bg-darker-30: darken($light-background, 30%);
+  $light-bg-lighter-5: lighten($light-background, 5%);
+  $dark-bg-tooltip: lighten(#2c2c2c, 20%);
+  $dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
+  $dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
+
+  $light-theme: (
+    color: (
+      primary: $default-theme-primary,
+      accent: $default-theme-accent,
+      warn: $default-theme-warn,
+      is-dark: false,
+      foreground: (
+        base: black,
+        divider: rgba(black, 0.12),
+        dividers: rgba(black, 0.12),
+        disabled: rgba(black, 0.38),
+        disabled-button: rgba($dark-text, 0.26),
+        disabled-text: rgba(black, 0.38),
+        elevation: black,
+        secondary-text: $dark-accent-text,
+        hint-text: rgba(black, 0.38),
+        accent-text: $dark-accent-text,
+        icon: $dark-accent-text,
+        icons: $dark-accent-text,
+        text: rgba(black, 0.87),
+        slider-min: rgba(black, 0.87),
+        slider-off: rgba($dark-text, 0.26),
+        slider-off-active: rgba(black, 0.38),
+      ),
+      background: (
+        background: $light-background,
+        status-bar: $light-bg-darker-20,
+        app-bar: $light-bg-darker-5,
+        hover: $dark-bg-alpha-4,
+        card: $light-bg-lighter-5,
+        dialog: $light-bg-lighter-5,
+        tooltip: $dark-bg-tooltip,
+        disabled-button: $dark-bg-alpha-12,
+        raised-button: $light-bg-lighter-5,
+        focused-button: rgba(black, 0.12),
+        selected-button: $light-bg-darker-20,
+        selected-disabled-button: $light-bg-darker-30,
+        disabled-button-toggle: $light-bg-darker-10,
+        unselected-chip: $light-bg-darker-10,
+        disabled-list-option: $light-bg-darker-10,
+      ),
+    ),
+  );
+
+  @include mat.all-component-colors($light-theme);
+  @include matx-theme($light-theme);
+}
+
+/* Create Dark theme */
+.matx-navy-dark {
+  // Foreground Elements
+  $light-text: #ffffff;
+  $light-accent-text: rgba(white, 0.7);
+
+  // Background config
+  $dark-background: #1a2038;
+  $dark-bg-lighter-5: lighten($dark-background, 5%);
+  $dark-bg-lighter-10: lighten($dark-background, 10%);
+  $dark-bg-lighter-20: lighten($dark-background, 20%);
+  $dark-bg-lighter-30: lighten($dark-background, 30%);
+  $light-bg-alpha-4: rgba(#fafafa, 0.04);
+  $light-bg-alpha-12: rgba(#fafafa, 0.12);
+
+  $dark-theme: (
+    color: (
+      primary: $default-theme-primary,
+      accent: $default-theme-accent,
+      warn: $default-theme-warn,
+      is-dark: true,
+      foreground: (
+        base: $light-text,
+        divider: rgba(white, 0.12),
+        dividers: rgba(white, 0.12),
+        disabled: rgba(white, 0.5),
+        disabled-button: rgba($light-text, 0.3),
+        disabled-text: rgba(white, 0.5),
+        elevation: black,
+        hint-text: rgba(white, 0.5),
+        secondary-text: $light-accent-text,
+        accent-text: $light-accent-text,
+        icon: $light-text,
+        icons: $light-text,
+        text: $light-text,
+        slider-min: $light-text,
+        slider-off: rgba($light-text, 0.3),
+        slider-off-active: rgba($light-text, 0.3),
+      ),
+      background: (
+        background: $dark-background,
+        status-bar: $dark-bg-lighter-20,
+        app-bar: $dark-bg-lighter-5,
+        hover: $light-bg-alpha-4,
+        card: $dark-bg-lighter-5,
+        dialog: $dark-bg-lighter-5,
+        tooltip: $dark-bg-lighter-20,
+        disabled-button: $light-bg-alpha-12,
+        raised-button: $dark-bg-lighter-5,
+        focused-button: rgba(white, 0.12),
+        selected-button: $dark-bg-lighter-20,
+        selected-disabled-button: $dark-bg-lighter-30,
+        disabled-button-toggle: $dark-bg-lighter-10,
+        unselected-chip: $dark-bg-lighter-20,
+        disabled-list-option: $dark-bg-lighter-10,
+      ),
+    ),
+  );
+
+  @include mat.all-component-colors($dark-theme);
+  @include matx-theme($dark-theme);
+
+}

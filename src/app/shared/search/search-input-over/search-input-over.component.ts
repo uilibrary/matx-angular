@@ -4,13 +4,15 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
-  Input
+  Input,
+  ViewChildren
 } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { SearchService } from "../search.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { AutoFocusDirective } from "app/shared/directives/auto-focus.directive";
 
 @Component({
   selector: "matx-search-input-over",
@@ -19,15 +21,15 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class SearchInputOverComponent implements OnInit, OnDestroy {
   isOpen: boolean;
+  @ViewChildren(AutoFocusDirective) searchInput;
   @Input('resultPage') resultPage: string;
   @Input('placeholder') placeholder: string = "Search here";
   @Output("search") search = new EventEmitter();
-  searchCtrl = new FormControl();
+  searchCtrl = new UntypedFormControl();
   searchCtrlSub: Subscription;
   constructor(
       private searchService: SearchService,
-      private router: Router,
-      private route: ActivatedRoute
+      private router: Router
   ) {}
 
   ngOnInit() {
@@ -51,6 +53,10 @@ export class SearchInputOverComponent implements OnInit, OnDestroy {
   open() {
     this.isOpen = true;
     this.navigateToResult();
+
+    setTimeout(() => {
+      this.searchInput.first.focus();
+    })
   }
   close() {
     this.isOpen = false;

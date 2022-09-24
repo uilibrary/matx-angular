@@ -1,140 +1,38 @@
 $black: rgba(0, 0, 0, 0.87);
 $white: rgba(255, 255, 255, 0.87);
 
-$solid-colors: (
-  white: (
-    color: #fff,
-    alt: #eee,
-    foreground: rgba(0, 0, 0, 0.76),
-  ),
-  black: (
-    color: #1e2129,
-    alt: #2d323d,
-    foreground: #ffffff,
-  ),
-  gray: (
-    color: #9e9e9e,
-    alt: #9e9e9e,
-    foreground: #ffffff,
-  ),
-  dark-gray: (
-    color: #424242,
-    alt: #303030,
-    foreground: #ffffff,
-  ),
-  light-gray: (
-    color: #eeeeee,
-    alt: #e6e6e6,
-    foreground: #ffffff,
-  ),
-  slate-gray: (
-    color: #607d8b,
-    alt: #37474f,
-    foreground: #ffffff,
-  ),
-  dark-purple: (
-    color: #322740,
-    alt: #322740,
-    foreground: #ffffff,
-  ),
-  dark-blue: (
-    color: #10174c,
-    alt: #151c4e,
-    foreground: #ffffff,
-  ),
-  blue: (
-    color: #03a9f4,
-    alt: #039be5,
-    foreground: #ffffff,
-  ),
-  indigo: (
-    color: #3f51b5,
-    alt: #5c6bc0,
-    foreground: #ffffff,
-  ),
-  yellow: (
-    color: #fcc02e,
-    alt: #f9c23b,
-    foreground: rgba(0, 0, 0, 0.87),
-  ),
-  green: (
-    color: #4caf50,
-    alt: #66bb6a,
-    foreground: rgba(0, 0, 0, 0.87),
-  ),
-  red: (
-    color: #f44336,
-    alt: #ff5252,
-    foreground: #ffffff,
-  ),
-  orange: (
-    color: #ff5722,
-    alt: #ff6e40,
-    foreground: #ffffff,
-  ),
-  pink: (
-    color: #e91f63,
-    alt: #e82c6c,
-    foreground: #ffffff,
-  ),
-);
-
-// Gradient colors
-$gradient-colors: (
-  gradient-purple-indigo: (
-    "start-color": #663399,
-    "end-color": #33214b,
-    "foreground": #ffffff,
-  ),
-  gradient-black-blue: (
-    "start-color": #004e92,
-    "end-color": #000428,
-    "foreground": #ffffff,
-  ),
-  gradient-black-gray: (
-    "start-color": #404040,
-    "end-color": #000000,
-    "foreground": #ffffff,
-  ),
-  gradient-steel-gray: (
-    "start-color": #616d86,
-    "end-color": #1f1c2c,
-    "foreground": #ffffff,
-  ),
-);
-
 $material-colors: (
   red: (
-    50: #fee8e7,
-    100: #fcc7c3,
-    200: #faa19b,
-    300: #f77b72,
-    400: #f65f54,
+    50: #ffebee,
+    100: #ffcdd2,
+    200: #ef9a9a,
+    300: #e57373,
+    400: #ef5350,
     500: #f44336,
-    600: #f33d30,
-    700: #f13429,
-    800: #ef2c22,
-    900: #ec1e16,
-    A100: #ffffff,
-    A200: #ffe9e9,
-    A400: #ffb8b6,
-    A700: #ff9f9c,
+    600: #e53935,
+    700: #d32f2f,
+    800: #c62828,
+    900: #b71c1c,
+    A100: #ff8a80,
+    A200: #ff5252,
+    A400: #ff1744,
+    A700: #d50000,
     contrast: (
-      50: #000000,
-      100: #000000,
-      200: #000000,
-      300: #000000,
-      400: #000000,
-      500: #ffffff,
-      600: #ffffff,
-      700: #ffffff,
-      800: #ffffff,
-      900: #ffffff,
-      A100: #000000,
-      A200: #000000,
-      A400: #000000,
-      A700: #000000,
-    ),
+      50: $black,
+      100: $black,
+      200: $black,
+      300: $black,
+      400: $black,
+      500: white,
+      600: white,
+      700: white,
+      800: $white,
+      900: $white,
+      A100: $black,
+      A200: white,
+      A400: white,
+      A700: white
+    )
   ),
   pink: (
     50: #fce4ec,
@@ -165,8 +63,8 @@ $material-colors: (
       A100: $black,
       A200: white,
       A400: white,
-      A700: white,
-    ),
+      A700: white
+    )
   ),
   light-purple: (
     50: #eeedfd,
@@ -197,40 +95,40 @@ $material-colors: (
       A100: #000000,
       A200: #000000,
       A400: #000000,
-      A700: #000000,
-    ),
+      A700: #000000
+    )
   ),
   purple: (
-    50: #eeedfd,
-    100: #d5d1fa,
-    200: #bab3f7,
-    300: #9e95f4,
-    400: #897ef1,
-    500: #7467ef,
-    600: #6c5fed,
-    700: #6154eb,
-    800: #574ae8,
-    900: #4439e4,
-    A100: #ffffff,
-    A200: #fbfbff,
-    A400: #cbc8ff,
-    A700: #b3aeff,
+    50: #f3e5f5,
+    100: #e1bee7,
+    200: #ce93d8,
+    300: #ba68c8,
+    400: #ab47bc,
+    500: #9c27b0,
+    600: #8e24aa,
+    700: #7b1fa2,
+    800: #6a1b9a,
+    900: #4a148c,
+    A100: #ea80fc,
+    A200: #e040fb,
+    A400: #d500f9,
+    A700: #aa00ff,
     contrast: (
-      50: #000000,
-      100: #000000,
-      200: #000000,
-      300: #000000,
-      400: #000000,
-      500: #ffffff,
-      600: #ffffff,
-      700: #ffffff,
-      800: #ffffff,
-      900: #ffffff,
-      A100: #000000,
-      A200: #000000,
-      A400: #000000,
-      A700: #000000,
-    ),
+      50: $black,
+      100: $black,
+      200: $black,
+      300: white,
+      400: white,
+      500: $white,
+      600: $white,
+      700: $white,
+      800: $white,
+      900: $white,
+      A100: $black,
+      A200: white,
+      A400: white,
+      A700: white
+    )
   ),
   deep-purple: (
     50: #ede7f6,
@@ -261,8 +159,8 @@ $material-colors: (
       A100: $black,
       A200: white,
       A400: $white,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   indigo: (
     50: #e8eaf6,
@@ -293,40 +191,40 @@ $material-colors: (
       A100: $black,
       A200: white,
       A400: white,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   blue: (
-    50: #e3effa,
-    100: #bad6f2,
-    200: #8cbbe9,
-    300: #5e9fe0,
-    400: #3c8bd9,
-    500: #1976d2,
-    600: #166ecd,
-    700: #1263c7,
-    800: #0e59c1,
-    900: #0846b6,
-    A100: #e0eaff,
-    A200: #adc6ff,
-    A400: #7aa3ff,
-    A700: #6191ff,
+    50: #e3f2fd,
+    100: #bbdefb,
+    200: #90caf9,
+    300: #64b5f6,
+    400: #42a5f5,
+    500: #2196f3,
+    600: #1e88e5,
+    700: #1976d2,
+    800: #1565c0,
+    900: #0d47a1,
+    A100: #82b1ff,
+    A200: #448aff,
+    A400: #2979ff,
+    A700: #2962ff,
     contrast: (
-      50: #000000,
-      100: #000000,
-      200: #000000,
-      300: #000000,
-      400: #ffffff,
-      500: #ffffff,
-      600: #ffffff,
-      700: #ffffff,
-      800: #ffffff,
-      900: #ffffff,
-      A100: #000000,
-      A200: #000000,
-      A400: #000000,
-      A700: #000000,
-    ),
+      50: $black,
+      100: $black,
+      200: $black,
+      300: $black,
+      400: $black,
+      500: white,
+      600: white,
+      700: white,
+      800: $white,
+      900: $white,
+      A100: $black,
+      A200: white,
+      A400: white,
+      A700: white
+    )
   ),
   light-blue: (
     50: #e1f5fe,
@@ -357,8 +255,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: white,
-    ),
+      A700: white
+    )
   ),
   dark-blue: (
     50: #e2e3ea,
@@ -389,8 +287,8 @@ $material-colors: (
       A100: $black,
       A200: white,
       A400: white,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   cyan: (
     50: #e0f7fa,
@@ -421,8 +319,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   teal: (
     50: #e0f2f1,
@@ -453,8 +351,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   green: (
     50: #e8f5e9,
@@ -485,8 +383,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   light-green: (
     50: #f1f8e9,
@@ -517,8 +415,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   lime: (
     50: #f9fbe7,
@@ -549,8 +447,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   yellow: (
     50: #fffde7,
@@ -581,8 +479,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   amber: (
     50: #fff8e1,
@@ -613,40 +511,40 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   orange: (
-    50: #fff3e8,
-    100: #ffe2c7,
-    200: #ffcfa1,
-    300: #ffbb7b,
-    400: #ffad5f,
-    500: #ff9e43,
-    600: #ff963d,
-    700: #ff8c34,
-    800: #ff822c,
-    900: #ff701e,
-    A100: #ffffff,
-    A200: #ffffff,
-    A400: #ffdece,
-    A700: #ffcdb4,
+    50: #fff3e0,
+    100: #ffe0b2,
+    200: #ffcc80,
+    300: #ffb74d,
+    400: #ffa726,
+    500: #ff9800,
+    600: #fb8c00,
+    700: #f57c00,
+    800: #ef6c00,
+    900: #e65100,
+    A100: #ffd180,
+    A200: #ffab40,
+    A400: #ff9100,
+    A700: #ff6d00,
     contrast: (
-      50: #000000,
-      100: #000000,
-      200: #000000,
-      300: #000000,
-      400: #000000,
-      500: #000000,
-      600: #000000,
-      700: #000000,
-      800: #000000,
-      900: #000000,
-      A100: #000000,
-      A200: #000000,
-      A400: #000000,
-      A700: #000000,
-    ),
+      50: $black,
+      100: $black,
+      200: $black,
+      300: $black,
+      400: $black,
+      500: $black,
+      600: $black,
+      700: $black,
+      800: white,
+      900: white,
+      A100: $black,
+      A200: $black,
+      A400: $black,
+      A700: black
+    )
   ),
   deep-orange: (
     50: #fbe9e7,
@@ -677,8 +575,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: white,
-      A700: white,
-    ),
+      A700: white
+    )
   ),
   brown: (
     50: #efebe9,
@@ -709,8 +607,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: white,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   grey: (
     0: #ffffff,
@@ -745,8 +643,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   black: (
     50: #e4e4e5,
@@ -777,8 +675,8 @@ $material-colors: (
       A100: #000000,
       A200: #ffffff,
       A400: #ffffff,
-      A700: #ffffff,
-    ),
+      A700: #ffffff
+    )
   ),
   blue-grey: (
     50: #eceff1,
@@ -809,8 +707,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: white,
-      A700: $white,
-    ),
+      A700: $white
+    )
   ),
   white: (
     50: #ffffff,
@@ -841,8 +739,8 @@ $material-colors: (
       A100: $black,
       A200: $black,
       A400: $black,
-      A700: $black,
-    ),
+      A700: $black
+    )
   ),
   slate: (
     50: #222a45,
@@ -873,7 +771,7 @@ $material-colors: (
       A100: #ffffff,
       A200: #ffffff,
       A400: #ffffff,
-      A700: #ffffff,
-    ),
-  ),
+      A700: #ffffff
+    )
+  )
 );

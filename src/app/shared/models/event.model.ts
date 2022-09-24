@@ -10,7 +10,7 @@ import {
   addHours
 } from 'date-fns';
 
-export class MatXCalendarEvent implements CalendarEvent {
+export class MatxCalendarEvent implements CalendarEvent {
   _id?: string;
   start: Date;
   end?: Date;

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { VerticalStepperComponent } from './vertical-stepper.component';
 
@@ -6,7 +6,7 @@ describe('VerticalStepperComponent', () => {
   let component: VerticalStepperComponent;
   let fixture: ComponentFixture<VerticalStepperComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ VerticalStepperComponent ]
     })

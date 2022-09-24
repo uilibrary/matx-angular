@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CustomPositionTooltipComponent } from './custom-position-tooltip.component';
 
@@ -6,7 +6,7 @@ describe('CustomPositionTooltipComponent', () => {
   let component: CustomPositionTooltipComponent;
   let fixture: ComponentFixture<CustomPositionTooltipComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CustomPositionTooltipComponent ]
     })

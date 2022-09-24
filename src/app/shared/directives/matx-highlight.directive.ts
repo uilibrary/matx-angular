@@ -11,7 +11,7 @@ import {
   OnDestroy,
   ChangeDetectorRef
 } from "@angular/core";
-import * as hl from "highlight.js";
+import HighlightJS from "highlight.js";
 import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -23,7 +23,7 @@ import { takeUntil } from "rxjs/operators";
   },
   selector: "[matxHighlight]"
 })
-export class MatXHighlightDirective implements OnInit, OnChanges, OnDestroy {
+export class MatxHighlightDirective implements OnInit, OnChanges, OnDestroy {
   constructor(
     private el: ElementRef,
     private cdr: ChangeDetectorRef,
@@ -33,12 +33,12 @@ export class MatXHighlightDirective implements OnInit, OnChanges, OnDestroy {
     this.unsubscribeAll = new Subject();
   }
   // Inner highlighted html
-  highlightedCode: string;
+  highlightedCode: string = '';
 
-  @Input() path: string;
-  @Input("matxHighlight") code: string;
+  @Input() path: string = '';
+  @Input("matxHighlight") code: string = '';
   private unsubscribeAll: Subject<any>;
-  @Input() languages: string[];
+  @Input() languages: string[] = [];
 
   ngOnInit() {
     if (this.code) {
@@ -56,7 +56,7 @@ export class MatXHighlightDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-      this.unsubscribeAll.next();
+      this.unsubscribeAll.next(1);
       this.unsubscribeAll.complete();
   }
 
@@ -73,7 +73,7 @@ export class MatXHighlightDirective implements OnInit, OnChanges, OnDestroy {
 
   highlightElement(code: string, languages?: string[]) {
     this._zone.runOutsideAngular(() => {
-      const res = hl.highlightAuto(code);
+      const res = HighlightJS.highlightAuto(code);
       this.highlightedCode = res.value;
       // this.cdr.detectChanges();
       // console.log(languages)

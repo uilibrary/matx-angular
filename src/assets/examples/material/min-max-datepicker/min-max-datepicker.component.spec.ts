@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MinMaxDatepickerComponent } from './min-max-datepicker.component';
 
@@ -6,7 +6,7 @@ describe('MinMaxDatepickerComponent', () => {
   let component: MinMaxDatepickerComponent;
   let fixture: ComponentFixture<MinMaxDatepickerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MinMaxDatepickerComponent ]
     })

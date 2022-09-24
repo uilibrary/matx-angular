@@ -1,0 +1,27 @@
+.signup3-wrap {
+  width: 100%;
+  height: 100vh;
+  background: url('../../../../images/backgrounds/trianglify-1.png');
+  z-index: -1;
+}
+
+.signup3-form-holder {
+  position: absolute;
+  width: 380px;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.signup3-form {
+  padding: 20px 20px 70px 20px;
+}
+
+.signup3-header {
+  text-align: center;
+  padding-bottom: 30px;
+}

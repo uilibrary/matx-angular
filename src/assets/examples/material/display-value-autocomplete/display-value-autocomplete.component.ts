@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export interface User {
 })
 export class DisplayValueAutocompleteComponent implements OnInit {
   
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
 
   options: User[] = [
     {name: 'Mary'},

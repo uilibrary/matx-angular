@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BasicSelectComponent } from './basic-select.component';
 
@@ -6,7 +6,7 @@ describe('BasicSelectComponent', () => {
   let component: BasicSelectComponent;
   let fixture: ComponentFixture<BasicSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BasicSelectComponent ]
     })

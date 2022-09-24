@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { OptionGroupAutocompleteComponent } from './option-group-autocomplete.component';
 
@@ -6,7 +6,7 @@ describe('OptionGroupAutocompleteComponent', () => {
   let component: OptionGroupAutocompleteComponent;
   let fixture: ComponentFixture<OptionGroupAutocompleteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ OptionGroupAutocompleteComponent ]
     })

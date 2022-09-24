@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RichTextEditorComponent implements OnInit {
 
-  editorData = `<h1>MatX | Angular material admin</h1>
-  <p><a href="http://ui-lib.com" target="_blank"><strong>UI Lib</strong></a></p>
+  editorData = `<h1>Matx | Angular material admin</h1>
+  <p><a href="http://devmatx.com" target="_blank"><strong>DevMatx</strong></a></p>
   <p><br></p><p><strong >Lorem Ipsum</strong>
   <span>&nbsp;is simply dummy text of the printing and typesetting industry. 
   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 

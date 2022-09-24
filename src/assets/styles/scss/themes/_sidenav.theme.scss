@@ -1,0 +1,13 @@
+@mixin sidenav($theme) {
+  $color: map-get($theme, color);
+  $text-color: map-get(map-get($color, foreground), text);
+  $background: map-get($color, background);
+  $background-card: map-get($background, card);
+  $background-default: map-get($background, background);
+  $primary: map-get(map-get($color, primary), main);
+
+  .sidenav-hold .sidenav a.open {
+    background-color: $primary;
+    color: white !important;
+  }
+}

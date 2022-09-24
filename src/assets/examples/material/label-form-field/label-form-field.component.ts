@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-label-form-field',
@@ -8,9 +8,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class LabelFormFieldComponent {
 
-  options: FormGroup;
+  options: UntypedFormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto',

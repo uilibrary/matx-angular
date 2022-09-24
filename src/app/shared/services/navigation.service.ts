@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 interface IMenuItem {
-  type: string; // Possible values: link/dropDown/separator/extLink
+  type: 'link' | 'dropDown' | 'icon' | 'separator' | 'extLink';
   name?: string; // Used as display text for item and title for separator type
   state?: string; // Router state
   icon?: string; // Material icon name
+  svgIcon?: string; // UI Lib icon name
   tooltip?: string; // Tooltip text
   disabled?: boolean; // If true, item will not be appeared in sidenav.
   sub?: IChildItem[]; // Dropdown items
@@ -15,7 +16,8 @@ interface IChildItem {
   type?: string;
   name: string; // Display text
   state?: string; // Router state
-  icon?: string;
+  icon?: string;  // Material icon name
+  svgIcon?: string; // UI Lib icon name
   sub?: IChildItem[];
 }
 
@@ -26,131 +28,106 @@ interface IBadge {
 
 @Injectable()
 export class NavigationService {
-  constructor() {}
   iconMenu: IMenuItem[] = [
-    
     {
-      name: "Dashboard",
-      type: "link",
-      tooltip: "Dashboard",
-      icon: "dashboard",
-      state: "dashboard/analytics"
+      name: 'DASHBOARD',
+      state: 'dashboard/analytics',
+      type: 'link',
+      icon: 'dashboard',
     },
     {
-      name: "PAGES",
-      type: "separator"
+      name: 'FORMS',
+      type: 'separator'
     },
     {
-      name: "Sessions",
-      type: "dropDown",
-      tooltip: "Pages",
-      icon: "how_to_reg",
-      state: "sessions",
-      badges: [{color: 'primary', value: '6'}],
+      name: 'BASIC',
+      state: 'forms/basic',
+      type: 'link',
+      icon: 'description',
+    },
+    {
+      name: 'EDITOR',
+      state: 'forms/editor',
+      type: 'link',
+      icon: 'subject',
+    },
+    {
+      name: 'UPLOAD',
+      state: 'forms/upload',
+      type: 'link',
+      icon: 'upload',
+    },
+    {
+      name: 'WIZARD',
+      state: 'forms/wizard',
+      type: 'link',
+      icon: 'grain',
+    },
+    {
+      name: 'PAGES',
+      type: 'separator'
+    },
+    {
+      name: 'SESSIONS',
+      type: 'dropDown',
+      tooltip: 'Pages',
+      icon: 'view_carousel',
       sub: [
-        { name: "Sign up", state: "signup" },
-        { name: "Sign in", state: "signin" },
-        { name: "Forgot", state: "forgot-password" },
-        { name: "Lock screen", state: "lockscreen" },
-        { name: "Not Found", state: "404" },
-        { name: "Error", state: "error" }
+        { name: 'SIGNUP', state: 'sessions/signup' },
+        { name: 'SIGNIN', state: 'sessions/signin' },
+        { name: 'NOTFOUND', state: 'sessions/404' },
       ]
     },
     {
-      name: "Blank Page",
-      type: "link",
-      icon: "check_box_outline_blank",
-      state: "pages/blank"
-    },
-    {
-      name: "COMPONENTS",
-      type: "separator"
-    },
-    {
-      name: "Forms",
-      type: "dropDown",
-      tooltip: "Forms",
-      icon: "description",
-      state: "forms",
+      name: 'OTHERS',
+      type: 'dropDown',
+      tooltip: 'Others',
+      icon: 'blur_on',
       sub: [
-        { name: "Basic", state: "basic" },
-        { name: "Editor", state: "editor" },
-        { name: "Upload", state: "upload" },
-        { name: "Wizard", state: "wizard" }
+        { name: 'GALLERY', state: 'others/gallery' },
+        { name: 'PRICINGS', state: 'others/pricing' },
+        { name: 'USERS', state: 'others/users' },
+        { name: 'BLANK', state: 'others/blank' }
       ]
     },
     {
-      name: "Data Table",
-      type: "link",
-      tooltip: "Tables",
-      icon: "format_line_spacing",
-      state: "tables/mat-table"
+      name: 'Pro',
+      type: 'extLink',
+      icon: 'upgrade',
+      state: 'http://matx-angular.ui-lib.com/'
     },
     {
-      name: "Material Kit",
-      type: "link",
-      icon: "move_to_inbox",
-      state: "mat-kits"
-    },
-    {
-      name: "OTHERS",
-      type: "separator"
-    },
-    {
-      name: "Icons",
-      type: "link",
-      tooltip: "Material Icons",
-      icon: "store",
-      state: "icons"
-    },
-    {
-      name: "Multi Level",
-      type: "dropDown",
-      tooltip: "Multi Level",
-      icon: "format_align_center",
-      state: "",
-      sub: [
-        {
-          name: "Level Two",
-          type: "dropDown",
-          state: "fake-1",
-          sub: [
-            { name: "Level Three", state: "fake-2" },
-            { name: "Level Three", state: "fake-3" }
-          ]
-        },
-        { name: "Level Two", state: "fake-4" },
-        { name: "Level Two", state: "fake-5" }
-      ]
-    },
-    {
-      name: "Documentation",
-      type: "extLink",
-      icon: "library_books",
-      state: "http://demos.ui-lib.com/matx-angular-doc/"
-    },
-    {
-      name: "Upgrade to PRO",
-      type: "extLink",
-      icon: "present_to_all",
-      state: "http://matx-angular.ui-lib.com"
+      name: 'DOC',
+      type: 'extLink',
+      tooltip: 'Documentation',
+      icon: 'library_books',
+      state: 'http://demos.ui-lib.com/matx-doc/'
     }
   ];
 
-
   // Icon menu TITLE at the very top of navigation.
   // This title will appear if any icon type item is present in menu.
-  iconTypeMenuTitle: string = "Frequently Accessed";
+  iconTypeMenuTitle = 'Frequently Accessed';
   // sets iconMenu as default;
   menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
+  constructor() { }
 
   // Customizer component uses this method to change menu.
   // You can remove this method and customizer component.
   // Or you can customize this method to supply different menu for
   // different user type.
   publishNavigationChange(menuType: string) {
-    this.menuItems.next(this.iconMenu);
+    // switch (menuType) {
+    //   case 'separator-menu':
+    //     this.menuItems.next(this.separatorMenu);
+    //     break;
+    //   case 'icon-menu':
+    //     this.menuItems.next(this.iconMenu);
+    //     break;
+    //   default:
+    //     this.menuItems.next(this.plainMenu);
+    // }
   }
 }

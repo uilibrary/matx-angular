@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppearanceFormFieldComponent } from './appearance-form-field.component';
 
@@ -6,7 +6,7 @@ describe('AppearanceFormFieldComponent', () => {
   let component: AppearanceFormFieldComponent;
   let fixture: ComponentFixture<AppearanceFormFieldComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AppearanceFormFieldComponent ]
     })

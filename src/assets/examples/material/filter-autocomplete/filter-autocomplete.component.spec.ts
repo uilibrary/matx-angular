@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FilterAutocompleteComponent } from './filter-autocomplete.component';
 
@@ -6,7 +6,7 @@ describe('FilterAutocompleteComponent', () => {
   let component: FilterAutocompleteComponent;
   let fixture: ComponentFixture<FilterAutocompleteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FilterAutocompleteComponent ]
     })

@@ -8,6 +8,7 @@ import {
   ResolveEnd 
 } from '@angular/router';
 import { Subscription } from "rxjs";
+import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../../services/theme.service';
 import { LayoutService } from '../../../services/layout.service';
 import { filter } from 'rxjs/operators';
@@ -16,7 +17,6 @@ import { JwtAuthService } from '../../../services/auth/jwt-auth.service';
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.template.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminLayoutComponent implements OnInit, AfterViewInit {
   public isModuleLoading: Boolean = false;
@@ -30,6 +30,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   
   constructor(
     private router: Router,
+    public translate: TranslateService,
     public themeService: ThemeService,
     private layout: LayoutService,
     private cdr: ChangeDetectorRef,
@@ -44,6 +45,10 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       this.layout.adjustLayout({ route: routeChange.url });
       this.scrollToTop();
     });
+    
+    // Translator init
+    const browserLang: string = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
 
   ngOnInit() {

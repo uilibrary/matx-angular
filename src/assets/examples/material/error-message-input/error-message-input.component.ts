@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {UntypedFormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-error-message-input',
@@ -8,7 +8,7 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class ErrorMessageInputComponent implements OnInit {
 
-  emailFormControl = new FormControl('', [
+  emailFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.email,
   ]);

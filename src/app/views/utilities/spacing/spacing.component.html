@@ -1,0 +1,206 @@
+<div class="page-layout plain overflow-hidden pb-8">
+  <div class="header blue"></div>
+  
+  <div class="content">
+    <div class="content-header blue p-24" fxLayout="row wrap" fxLayoutAlign="start center">
+      <h1 class="text-white m-0">Spacing Helper Classes</h1>
+    </div>
+
+    <div class="content-body">
+          <mat-tab-group>
+              <mat-tab label="Margins">
+                <div class="p-24">
+                    <h4>Non Directional</h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                        
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.m-{{m}}</div>
+                        <div fxFlex>
+                          <pre><code [matxHighlight]="'<div class=&quot;m-'+m+'&quot;>margin '+m+'px</div>'"></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    <h4>Margin auto </h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.m-auto</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="
+                              '<div class=&quot;m-auto&quot;>Margin auto</div>'
+                            "></code></pre>
+                        </div>
+                      </div>
+                      <div fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.mx-auto</div>
+                        <div fxFlex>
+                              <pre><code [matxHighlight]="
+                                '<div class=&quot;mx-auto&quot;>Margin left auto & Margin right auto</div>'
+                              "></code></pre>
+                          </div>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                          <div fxFlex="100px">.my-auto</div>
+                          <div fxFlex>
+                                <pre><code [matxHighlight]="
+                                  '<div class=&quot;my-auto&quot;>Margin top auto & Margin bottom auto</div>'
+                                "></code></pre>
+                            </div>
+                          </div>
+                    </mat-card>
+
+                    <h4>Directional <span class="text-muted">(Horizontal)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.mx-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="
+                              '<div class=&quot;mx-'+m+'&quot;>Margin left '+m+'px & Margin right '+m+'px</div>'
+                            "></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    <h4>Directional <span class="text-muted">(Verticle)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.my-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="
+                              '<div class=&quot;my-'+m+'&quot;>Margin top '+m+'px & Margin bottom '+m+'px</div>'
+                            "></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    <h4>Directional <span class="text-muted">(margin top)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.mt-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="'<div class=&quot;mt-'+m+'&quot;>margin top '+m+'px</div>'"></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    
+
+                    <h4>Directional <span class="text-muted">(margin right)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.mr-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="'<div class=&quot;mr-'+m+'&quot;>Margin right '+m+'px</div>'"></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    <h4>Directional <span class="text-muted">(margin bottom)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.mb-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="'<div class=&quot;mb-'+m+'&quot;>Margin bottom '+m+'px</div>'"></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+
+                    <h4>Directional <span class="text-muted">(margin left)</span></h4>
+                    <mat-card class="mt-16 mx-0 mb-32">
+                      <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                        <div fxFlex="100px">.ml-{{m}}</div>
+                        <div fxFlex>
+                            <pre><code [matxHighlight]="'<div class=&quot;ml-'+m+'&quot;>Margin left '+m+'px</div>'"></code></pre>
+                        </div>
+                      </div>
+                    </mat-card>
+                </div>
+              </mat-tab>
+              <mat-tab label="Paddings">
+                <div class="p-24">
+                  <h4>Non Directional</h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                      
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.p-{{m}}</div>
+                      <div fxFlex>
+                        <pre><code [matxHighlight]="'<div class=&quot;p-'+m+'&quot;>Padding '+m+'px</div>'"></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  
+
+                  <h4>Directional <span class="text-muted">(Horizontal)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.px-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="
+                            '<div class=&quot;px-'+m+'&quot;>Padding left '+m+'px & Padding right '+m+'px</div>'
+                          "></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  <h4>Directional <span class="text-muted">(Verticle)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.py-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="
+                            '<div class=&quot;py-'+m+'&quot;>Padding top '+m+'px & Padding bottom '+m+'px</div>'
+                          "></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  <h4>Directional <span class="text-muted">(Padding top)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.pt-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="'<div class=&quot;pt-'+m+'&quot;>Padding top '+m+'px</div>'"></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  
+
+                  <h4>Directional <span class="text-muted">(Padding right)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.pr-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="'<div class=&quot;pr-'+m+'&quot;>Padding right '+m+'px</div>'"></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  <h4>Directional <span class="text-muted">(Padding bottom)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.pb-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="'<div class=&quot;pb-'+m+'&quot;>Padding bottom '+m+'px</div>'"></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+
+                  <h4>Directional <span class="text-muted">(Padding left)</span></h4>
+                  <mat-card class="mt-16 mx-0 mb-32">
+                    <div *ngFor="let m of spacings" fxLayout="row wrap" fxLayoutAlign="start center" class="mb-32">
+                      <div fxFlex="100px">.pl-{{m}}</div>
+                      <div fxFlex>
+                          <pre><code [matxHighlight]="'<div class=&quot;pl-'+m+'&quot;>Padding left '+m+'px</div>'"></code></pre>
+                      </div>
+                    </div>
+                  </mat-card>
+              </div>
+              </mat-tab>
+          </mat-tab-group>
+    </div>
+
+  </div>
+
+</div>

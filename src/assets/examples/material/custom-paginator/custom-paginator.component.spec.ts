@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CustomPaginatorComponent } from './custom-paginator.component';
 
@@ -6,7 +6,7 @@ describe('CustomPaginatorComponent', () => {
   let component: CustomPaginatorComponent;
   let fixture: ComponentFixture<CustomPaginatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CustomPaginatorComponent ]
     })

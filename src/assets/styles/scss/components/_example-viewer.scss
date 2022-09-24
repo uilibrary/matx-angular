@@ -1,0 +1,29 @@
+.matx-example-viewer-accordion {
+  .code-wrap {
+    max-height: 400px;
+  }
+  pre {
+    margin: 0 !important;
+  }
+  > .mat-expansion-panel {
+    box-shadow: none !important;
+  }
+  .example-viewer-tab-wrap {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+  .mat-expansion-panel-header {
+    margin: 0 !important;
+  }
+  .matx-example-viewer-header.mat-expansion-panel-header {
+    > .mat-expansion-indicator {
+      display: none !important;
+    }
+    .mat-expansion-panel-header-title {
+      align-items: center;
+    }
+  }
+  
+  
+  
+}

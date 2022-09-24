@@ -9,14 +9,14 @@ import {
 import { takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
 import { MatchMediaService } from "app/shared/services/match-media.service";
-import { MatXSidenavHelperService } from "./matx-sidenav-helper.service";
+import { MatxSidenavHelperService } from "./matx-sidenav-helper.service";
 import { MatSidenav } from "@angular/material/sidenav";
 import { MediaObserver } from "@angular/flex-layout";
 
 @Directive({
   selector: "[matxSidenavHelper]"
 })
-export class MatXSidenavHelperDirective implements OnInit, OnDestroy {
+export class MatxSidenavHelperDirective implements OnInit, OnDestroy {
   @HostBinding("class.is-open")
   isOpen: boolean;
 
@@ -30,7 +30,7 @@ export class MatXSidenavHelperDirective implements OnInit, OnDestroy {
 
   constructor(
     private matchMediaService: MatchMediaService,
-    private matxSidenavHelperService: MatXSidenavHelperService,
+    private matxSidenavHelperService: MatxSidenavHelperService,
     private matSidenav: MatSidenav,
     private mediaObserver: MediaObserver
   ) {
@@ -69,7 +69,7 @@ export class MatXSidenavHelperDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.unsubscribeAll.next();
+    this.unsubscribeAll.next(1);
     this.unsubscribeAll.complete();
   }
 }
@@ -77,11 +77,11 @@ export class MatXSidenavHelperDirective implements OnInit, OnDestroy {
 @Directive({
   selector: "[matxSidenavToggler]"
 })
-export class MatXSidenavTogglerDirective {
+export class MatxSidenavTogglerDirective {
   @Input("matxSidenavToggler")
   public id: any;
 
-  constructor(private matxSidenavHelperService: MatXSidenavHelperService) {}
+  constructor(private matxSidenavHelperService: MatxSidenavHelperService) {}
 
   @HostListener("click")
   onClick() {

@@ -1,0 +1,60 @@
+@mixin info-card-theme($theme) {
+  $color: map-get($theme, color);
+  $background: map-get($color, background);
+  $text-color: map-get(map-get($color, foreground), text);
+  $disabled-text-color: map-get(map-get($color, foreground), disabled-text);
+  $background-card: map-get($background, card);
+  $primary: map-get(map-get($color, primary), main);
+  $accent: map-get(map-get($color, accent), main);
+  $warn: map-get(map-get($color, warn), main);
+
+  .info-card.primary {
+    border-color: rgba($primary, .3);
+    background-color: rgba($primary, .07);
+
+    .description {
+      color: darken($primary, 30%);
+    }
+  }
+
+  .info-card.accent {
+    border-color: rgba($accent, .3);
+    background-color: rgba($accent, .07);
+
+    .description {
+      color: darken($accent, 30%);
+    }
+  }
+
+  .info-card.warn {
+    border-color: rgba($warn, .3);
+    background-color: rgba($warn, .07);
+
+    .description {
+      color: darken($warn, 30%);
+    }
+  }
+
+  // .ngx-datatable.material {
+  //   background-color: $background-card !important;
+  //   color: $text-color !important;
+  // }
+  // .ngx-datatable .datatable-header-cell,
+  // .ngx-datatable .datatable-body-cell,
+  // .page-count,
+  // .ngx-datatable .datatable-footer .datatable-pager a {
+  //   color: $text-color !important;
+  // }
+  // .ngx-datatable .datatable-footer .datatable-pager .pager li.disabled a {
+  //   color: $disabled-text-color !important;
+  // }
+  // .ngx-datatable.material .datatable-header {
+  //   background: map-get($background, background);
+  // }
+  // .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  // .ngx-datatable.material:not(.cell-selection)
+  //   .datatable-body-row:hover
+  //   .datatable-row-group {
+  //   background: map-get($background, hover);
+  // }
+}

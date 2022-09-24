@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RipplelessSelectComponent } from './rippleless-select.component';
 
@@ -6,7 +6,7 @@ describe('RipplelessSelectComponent', () => {
   let component: RipplelessSelectComponent;
   let fixture: ComponentFixture<RipplelessSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RipplelessSelectComponent ]
     })

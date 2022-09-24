@@ -1,47 +1,47 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-basic-form",
-  templateUrl: "./basic-form.component.html",
-  styleUrls: ["./basic-form.component.css"]
+  selector: 'app-basic-form',
+  templateUrl: './basic-form.component.html',
+  styleUrls: ['./basic-form.component.css']
 })
 export class BasicFormComponent implements OnInit {
-  formData = {};
+  formData = {}
   console = console;
-  basicForm: FormGroup;
+  basicForm: UntypedFormGroup;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    let password = new FormControl("", Validators.required);
-    let confirmPassword = new FormControl(
-      "",
-      CustomValidators.equalTo(password)
-    );
+    let password = new UntypedFormControl('', Validators.required);
+    let confirmPassword = new UntypedFormControl('');
 
-    this.basicForm = new FormGroup({
-      username: new FormControl("", [
+    this.basicForm = new UntypedFormGroup({
+      username: new UntypedFormControl('', [
         Validators.minLength(4),
         Validators.maxLength(9)
       ]),
-      firstname: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      website: new FormControl("", CustomValidators.url),
-      date: new FormControl(),
-      cardno: new FormControl("", [CustomValidators.creditCard]),
-      phone: new FormControl("", [Validators.required]),
+      firstname: new UntypedFormControl('', [
+        Validators.required
+      ]),
+      email: new UntypedFormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
+      website: new UntypedFormControl(''),
+      date: new UntypedFormControl(),
+      cardno: new UntypedFormControl(''),
       password: password,
       confirmPassword: confirmPassword,
-      gender: new FormControl("", [Validators.required]),
-      agreed: new FormControl("", (control: FormControl) => {
+      gender: new UntypedFormControl(''),
+      agreed: new UntypedFormControl('', (control: UntypedFormControl) => {
         const agreed = control.value;
-        if (!agreed) {
-          return { agreed: true };
+        if(!agreed) {
+          return { agreed: true }
         }
         return null;
       })
-    });
+    })
   }
 }

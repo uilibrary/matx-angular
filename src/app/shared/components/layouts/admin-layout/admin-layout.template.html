@@ -1,5 +1,10 @@
-<div class="app-admin-wrap" dir='ltr'>
-
+<div class="app-admin-wrap" [dir]='layoutConf?.dir'>
+  <!-- Header for top navigation layout -->
+  <!-- ONLY REQUIRED FOR **TOP** NAVIGATION LAYOUT -->
+  <app-header-top 
+    *ngIf="layoutConf.navigationPos === 'top'" 
+    [notificPanel]="notificationPanel">
+  </app-header-top>
   <!-- Main Container -->
   <mat-sidenav-container 
   [dir]='layoutConf.dir'
@@ -14,6 +19,10 @@
     (mouseleave)="sidebarMouseleave($event)"
     ></app-sidebar-side>
     
+    <!-- Top navigation layout (navigation for mobile screen) -->
+    <!-- ONLY REQUIRED FOR **TOP** NAVIGATION MOBILE LAYOUT -->
+    <app-sidebar-top *ngIf="layoutConf.navigationPos === 'top' && layoutConf.isMobile"></app-sidebar-top>
+
     <!-- App content -->
     <div class="main-content-wrap" id="main-content-wrap" [perfectScrollbar]="" [disabled]="layoutConf.topbarFixed || !layoutConf.perfectScrollbar">
       <!-- Header for side navigation layout -->
@@ -35,9 +44,11 @@
         <!-- Breadcrumb -->
         <app-breadcrumb></app-breadcrumb>
         <!-- View outlet -->
-        <router-outlet></router-outlet>
+        <div class="container-dynamic">
+          <router-outlet></router-outlet>
+        </div>
         <span class="m-auto" *ngIf="!layoutConf.footerFixed"></span>
-        <app-footer *ngIf="!layoutConf.footerFixed" style="display: block; margin: 0 -.333rem -.33rem"></app-footer>
+        <app-footer *ngIf="!layoutConf.footerFixed" style="margin: 0 -.33rem -.33rem"></app-footer>
       </div>
       <span class="m-auto" *ngIf="layoutConf.footerFixed"></span>
       <app-footer *ngIf="layoutConf.footerFixed"></app-footer>
@@ -55,6 +66,8 @@
         <app-notifications [notificPanel]="notificationPanel"></app-notifications>
       </div>
     </mat-sidenav>
+    
+    <matx-notifications2></matx-notifications2>
   </mat-sidenav-container>
 </div>
 

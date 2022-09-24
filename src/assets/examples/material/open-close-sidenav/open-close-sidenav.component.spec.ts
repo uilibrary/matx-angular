@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { OpenCloseSidenavComponent } from './open-close-sidenav.component';
 
@@ -6,7 +6,7 @@ describe('OpenCloseSidenavComponent', () => {
   let component: OpenCloseSidenavComponent;
   let fixture: ComponentFixture<OpenCloseSidenavComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ OpenCloseSidenavComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BasicButtonToggleComponent } from './basic-button-toggle.component';
 
@@ -6,7 +6,7 @@ describe('BasicButtonToggleComponent', () => {
   let component: BasicButtonToggleComponent;
   let fixture: ComponentFixture<BasicButtonToggleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BasicButtonToggleComponent ]
     })

@@ -1,30 +1,31 @@
-<mat-toolbar class="topbar">
+<mat-toolbar class="topbar mat-bg-card">
   <!-- Sidenav toggle button -->
   <button
     *ngIf="layoutConf.sidebarStyle !== 'compact'"
     mat-icon-button
     id="sidenavToggle"
-    fxHide.gt-md
-    fxHide.md
     (click)="toggleSidenav()"
     matTooltip="Toggle Hide/Open"
   >
     <mat-icon>menu</mat-icon>
   </button>
 
-  <!-- Search form -->
-  <!-- <div fxFlex fxHide.lt-sm="true" class="search-bar">
-    <form class="top-search-form">
-      <mat-icon role="img">search</mat-icon>
-      <input autofocus="true" placeholder="Search" type="text" />
-    </form>
-  </div> -->
-
   <span fxFlex></span>
+  <!-- Language Switcher -->
+  <button mat-button [matMenuTriggerFor]="menu">
+    <span class="fi fi-{{currentLang.flag}} mr-8"></span>
+    <span>{{currentLang.name}}</span>
+  </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let lang of availableLangs" (click)="setLang(lang)">
+        <span class="fi mr-8 fi-{{lang.flag}}"></span>
+        <span>{{lang.name}}</span>
+  </button>
+</mat-menu>
 
-  <matx-search-input-over placeholder="Country (e.g. US)" resultPage="/search">
-  </matx-search-input-over>
-  <!-- Open "views/search-view/result-page.component" to understand how to subscribe to input field value -->
+
+  <matx-search-input-over placeholder="Country (e.g. US)" resultPage="/search"></matx-search-input-over>
+  <!-- Open "views/search-view/result-page.component" to know more about subscribing to input field value -->
 
   <!-- Notification toggle button -->
   <button
@@ -61,7 +62,7 @@
     </button>
     <button mat-menu-item (click)="jwtAuth.signout()">
       <mat-icon>exit_to_app</mat-icon>
-      <span>Sign out</span>
+      <span>{{ "SIGNOUT" | translate }}</span>
     </button>
   </mat-menu>
 </mat-toolbar>

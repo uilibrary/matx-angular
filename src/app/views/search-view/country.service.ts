@@ -12,6 +12,6 @@ export class CountryService {
   ) { }
 
   getCountries(name) {
-      return this.http.get<any[]>('https://restcountries.eu/rest/v2/name/'+name);
+      return this.http.get<any[]>('https://restcountries.com/v3.1/name/'+name);
   }
 }

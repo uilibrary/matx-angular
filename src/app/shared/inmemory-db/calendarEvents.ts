@@ -8,7 +8,7 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
-import { MatXCalendarEvent } from '../../shared/models/event.model';
+import { MatxCalendarEvent } from '../../shared/models/event.model';
 
 export class CalendarEventDB {
   private colors: any = {

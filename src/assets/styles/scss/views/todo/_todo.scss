@@ -1,0 +1,18 @@
+.search-box {
+  border-radius: 24px;
+  background: white;
+  overflow: hidden;
+  vertical-align: middle;
+
+  .mat-icon-button {
+    margin-left: 8px;
+  }
+  input[type="text"] {
+    width: calc(100% - 52px);
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+}

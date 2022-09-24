@@ -8,7 +8,7 @@
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>Fill out your name</ng-template>
-          <mat-form-field class="pt-1 pb-1">
+          <mat-form-field class="pt-16 pb-16">
             <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
           </mat-form-field>
           <div>
@@ -19,7 +19,7 @@
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Fill out your address</ng-template>
-          <mat-form-field class="pt-1 pb-1">
+          <mat-form-field class="pt-16 pb-16">
             <input matInput placeholder="Address" formControlName="secondCtrl" required>
           </mat-form-field>
           <div fxLayout="row">
@@ -32,9 +32,9 @@
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         <div>
-          <mat-icon class="pt-1" [style.fontSize]="'36px'">check</mat-icon>
+          <mat-icon class="pt-16" [style.fontSize]="'36px'">check</mat-icon>
         </div>
-        <div class="pb-1 mb-1"> You Are Done.</div>
+        <div class="pb-16 mb-16"> You Are Done.</div>
         <div fxLayout="row">
           <button mat-raised-button color="accent" matStepperPrevious>Back</button>
           <span fxFlex="8px"></span>
@@ -79,9 +79,9 @@
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         <div>
-          <mat-icon class="pt-1" [style.fontSize]="'36px'">check</mat-icon>
+          <mat-icon class="pt-16" [style.fontSize]="'36px'">check</mat-icon>
         </div>
-        <div class="pb-1 mb-1"> You Are Done.</div>
+        <div class="pb-16 mb-16"> You Are Done.</div>
         <div>
           <button mat-raised-button color="accent" matStepperPrevious>Back</button>
         </div>

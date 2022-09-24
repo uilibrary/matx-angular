@@ -1,43 +1,42 @@
-import { Component, OnInit, Input, Renderer2 } from "@angular/core";
-import { NavigationService } from "../../../shared/services/navigation.service";
-import { LayoutService } from "../../../shared/services/layout.service";
-import PerfectScrollbar from "perfect-scrollbar";
-import { CustomizerService } from "app/shared/services/customizer.service";
-import { ThemeService, ITheme } from "app/shared/services/theme.service";
+import { Component, OnInit, Input, Renderer2 } from '@angular/core';
+import { NavigationService } from '../../../shared/services/navigation.service';
+import { LayoutService } from '../../../shared/services/layout.service';
+import { CustomizerService } from 'app/shared/services/customizer.service';
+import { ThemeService, ITheme } from 'app/shared/services/theme.service';
 
 @Component({
-  selector: "app-customizer",
-  templateUrl: "./customizer.component.html",
-  styleUrls: ["./customizer.component.scss"]
+  selector: 'app-customizer',
+  templateUrl: './customizer.component.html',
+  styleUrls: ['./customizer.component.scss'],
 })
 export class CustomizerComponent implements OnInit {
-  isCustomizerOpen: boolean = false;
-  // viewMode: 'options' | 'json' | 'demos' = 'demos';
+  isCustomizerOpen = false;
+  viewMode: 'options' | 'json' = 'options';
   sidenavTypes = [
     {
-      name: "Default Menu",
-      value: "default-menu"
+      name: 'Default Menu',
+      value: 'default-menu',
     },
     {
-      name: "Separator Menu",
-      value: "separator-menu"
+      name: 'Separator Menu',
+      value: 'separator-menu',
     },
     {
-      name: "Icon Menu",
-      value: "icon-menu"
-    }
+      name: 'Icon Menu',
+      value: 'icon-menu',
+    },
   ];
-  sidebarColors: any[];
-  topbarColors: any[];
+  sidebarColors: any[] = [];
+  topbarColors: any[] = [];
 
-  layoutConf;
-  selectedMenu: string = "icon-menu";
-  selectedLayout: string;
+  layoutConf:any = {};
+  selectedMenu = 'icon-menu';
+  selectedLayout: string = '';
   isTopbarFixed = false;
   isFooterFixed = false;
   isRTL = false;
-  matxThemes: ITheme[];
-  perfectScrollbarEnabled: boolean = true;
+  matxThemes: ITheme[] = [];
+  perfectScrollbarEnabled = true;
 
   constructor(
     private navService: NavigationService,
@@ -51,30 +50,30 @@ export class CustomizerComponent implements OnInit {
     this.layoutConf = this.layout.layoutConf;
     this.selectedLayout = this.layoutConf.navigationPos;
     this.isTopbarFixed = this.layoutConf.topbarFixed;
-    this.isRTL = this.layoutConf.dir === "rtl";
+    this.isRTL = this.layoutConf.dir === 'rtl';
     this.matxThemes = this.themeService.matxThemes;
   }
-  changeTheme(theme) {
+  changeTheme(theme: any) {
     // this.themeService.changeTheme(theme);
-    this.layout.publishLayoutChange({matTheme: theme.name})
+    this.layout.publishLayoutChange({ matTheme: theme.name });
   }
-  changeLayoutStyle(data) {
+  changeLayoutStyle(data: any) {
     this.layout.publishLayoutChange({ navigationPos: this.selectedLayout });
   }
-  changeSidenav(data) {
+  changeSidenav(data: any) {
     this.navService.publishNavigationChange(data.value);
   }
-  toggleBreadcrumb(data) {
+  toggleBreadcrumb(data: any) {
     this.layout.publishLayoutChange({ useBreadcrumb: data.checked });
   }
-  toggleTopbarFixed(data) {
+  toggleTopbarFixed(data: any) {
     this.layout.publishLayoutChange({ topbarFixed: data.checked });
   }
-  toggleDir(data) {
-    
+  toggleDir(data: any) {
+    let dir = data.checked ? 'rtl' : 'ltr';
+    this.layout.publishLayoutChange({ dir: dir });
   }
-  tooglePerfectScrollbar(data) {
-    this.layout.publishLayoutChange({perfectScrollbar: this.perfectScrollbarEnabled})
+  tooglePerfectScrollbar(data: any) {
+    this.layout.publishLayoutChange({ perfectScrollbar: this.perfectScrollbarEnabled });
   }
-  
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
@@ -26,7 +26,7 @@ const moment = _moment;
 export class MomentJsDatepickerComponent implements OnInit {
 
     // Datepicker takes `Moment` objects instead of `Date` objects.
-    date = new FormControl(moment([2017, 0, 1]));
+    date = new UntypedFormControl(moment([2017, 0, 1]));
 
   constructor() { }
 

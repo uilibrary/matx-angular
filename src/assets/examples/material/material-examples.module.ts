@@ -15,6 +15,6 @@ import { SharedComponentsModule } from 'app/shared/components/shared-components.
     SharedMaterialModule
   ],
   exports: [...MATERIAL_EXAMPLE_COMPONENT_LIST],
-  entryComponents: [...MATERIAL_EXAMPLE_COMPONENT_LIST]
+  // entryComponents: [...MATERIAL_EXAMPLE_COMPONENT_LIST]
 })
 export class MaterialExamplesModule { }

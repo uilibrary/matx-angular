@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ResponsiveSidenavComponent } from './responsive-sidenav.component';
 
@@ -6,7 +6,7 @@ describe('ResponsiveSidenavComponent', () => {
   let component: ResponsiveSidenavComponent;
   let fixture: ComponentFixture<ResponsiveSidenavComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ResponsiveSidenavComponent ]
     })

@@ -1,0 +1,46 @@
+.seciton-left {
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../../../images/backgrounds/card-coffee-cup.jpg");
+  background-size: cover;
+
+  .section-left-content {
+    max-width: 380px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background: rgba($color: #000000, $alpha: 0.65);
+    z-index: -1;
+  }
+}
+
+.form-holder {
+  padding: 16px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 40%;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.signup-form {
+  padding: 20px 20px 70px 20px;
+}

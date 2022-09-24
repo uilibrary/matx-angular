@@ -41,8 +41,17 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   toggleCollapse() {
-    this.layout.publishLayoutChange({
-      sidebarCompactToggle: !this.layoutConf.sidebarCompactToggle
-    });
+    if (
+      this.layoutConf.sidebarCompactToggle
+    ) {
+        this.layout.publishLayoutChange({
+        sidebarCompactToggle: false
+      });
+    } else {
+        this.layout.publishLayoutChange({
+            // sidebarStyle: "compact",
+            sidebarCompactToggle: true
+          });
+    }
   }
 }

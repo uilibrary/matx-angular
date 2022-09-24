@@ -1,0 +1,27 @@
+@mixin matx-calendar($theme) {
+  $color: map-get($theme, color);
+  $foreground: map-get($color, foreground);
+  $text-color: map-get($foreground, text);
+  $divider: map-get($foreground, divider);
+
+  $background: map-get($color, background);
+  $background-card: map-get($background, card);
+  $background-default: map-get($background, background);
+
+  // @debug
+
+  .cal-month-view {
+    background-color: $background-card !important;
+  }
+  .cal-month-view .cal-day-cell:not(:last-child),
+  .cal-month-view .cal-days .cal-cell-row,
+  .cal-month-view .cal-days {
+    border-color: $divider !important;
+  }
+  .cal-month-view .cal-cell-row .cal-cell:hover,
+  .cal-month-view .cal-cell.cal-has-events.cal-open,
+  .cal-month-view .cal-cell-row:hover,
+  .cal-month-view .cal-day-cell.cal-today {
+    background-color: $background-default;
+  }
+}

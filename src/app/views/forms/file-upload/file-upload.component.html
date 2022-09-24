@@ -4,7 +4,7 @@
     <mat-divider></mat-divider>
   </mat-card-title>
   <mat-card-content>
-      <div class="mb-1">
+      <div class="mb-16">
         <p>Multiple</p>
         <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
 
@@ -12,7 +12,7 @@
         <input type="file" ng2FileSelect [uploader]="uploader" />
       </div>
 
-      <div class="mb-1">
+      <div class="mb-16">
         <div ng2FileDrop
         [ngClass]="{'dz-file-over': hasBaseDropZoneOver}"
         (fileOver)="fileOverBase($event)"
@@ -82,7 +82,7 @@
 
       <div>
         <p>Queue progress:</p>
-        <div class="progress mb-1" >
+        <div class="progress mb-16" >
             <mat-progress-bar
               class=""
               color="primary"

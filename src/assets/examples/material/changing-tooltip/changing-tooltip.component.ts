@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-changing-tooltip',
@@ -8,7 +8,7 @@ import {FormControl} from '@angular/forms';
 })
 export class ChangingTooltipComponent implements OnInit {
 
-  message = new FormControl('Info about the action');
+  message = new UntypedFormControl('Info about the action');
   
   constructor() { }
 

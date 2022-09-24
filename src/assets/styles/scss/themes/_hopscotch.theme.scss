@@ -1,0 +1,64 @@
+@mixin hopscotch($theme) {
+  $color: map-get($theme, color);
+  $foreground: map-get($color, foreground);
+  $text-color: map-get($foreground, text);
+  $divider: map-get($foreground, divider);
+
+  $background: map-get($color, background);
+  $background-card: map-get($background, card);
+  $background-default: map-get($background, background);
+
+  $primary: map-get(map-get($color, primary), main);
+
+  div.hopscotch-bubble {
+    background-color: $background-card !important;
+    border-color: $divider !important;
+    color: $text-color !important;
+
+    .hopscotch-title {
+      color: $text-color !important;
+    }
+    .hopscotch-bubble-number {
+      background-image: none !important;
+      background-color: $primary;
+    }
+  }
+
+  .hopscotch-next {
+    background-color: $primary !important;
+  }
+  /* up arrow  */
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.up .hopscotch-bubble-arrow-border {
+      border-bottom: 17px solid $divider;
+  }
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.up .hopscotch-bubble-arrow {
+      border-bottom: 17px solid $background-card;
+      top: -16px;
+  }
+  /* right arrow */
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.right .hopscotch-bubble-arrow-border {
+      border-left: 17px solid $divider;
+  }
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.right .hopscotch-bubble-arrow {
+      border-left: 17px solid $background-card;
+      left: -1px;
+  }
+  /* bottom arrow */
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-arrow-border {
+      border-top: 17px solid $divider;
+  }
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-arrow {
+      border-top: 17px solid $background-card;
+      top: -18px;
+  }
+  /* Left Arrow */
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.left .hopscotch-bubble-arrow-border {
+      border-right: 17px solid $divider;
+  }
+  div.hopscotch-bubble .hopscotch-bubble-arrow-container.left .hopscotch-bubble-arrow {
+      left: 1px;
+      border-right: 17px solid $background-card;
+  }
+
+
+}

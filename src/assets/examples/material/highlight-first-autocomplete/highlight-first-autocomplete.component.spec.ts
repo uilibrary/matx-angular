@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HighlightFirstAutocompleteComponent } from './highlight-first-autocomplete.component';
 
@@ -6,7 +6,7 @@ describe('HighlightFirstAutocompleteComponent', () => {
   let component: HighlightFirstAutocompleteComponent;
   let fixture: ComponentFixture<HighlightFirstAutocompleteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HighlightFirstAutocompleteComponent ]
     })

@@ -1,0 +1,29 @@
+<mat-card class="p-0">
+  <mat-card-title class="m-0">
+    <div class="card-title-text">Media gallery</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content class="p-0">
+    <mat-grid-list cols="3" rowHeight="1:1" class="app-gallery">
+      <!-- Gallery item -->
+      <mat-grid-tile *ngFor="let photo of photos">
+        <img [src]="photo.url" alt="">
+        <!-- item detail, show on hover -->
+        <div class="gallery-control-wrap">
+          <div class="gallery-control">
+            <h4 class="photo-detail fz-1" [fxHide.lt-sm]="true">{{photo.name}}</h4>
+            <span fxFlex></span>
+            <button mat-icon-button [matMenuTriggerFor]="photoMenu" class="">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #photoMenu="matMenu">
+                <button mat-menu-item><mat-icon>send</mat-icon>Send as attachment</button>
+                <button mat-menu-item><mat-icon>favorite</mat-icon>Favorite</button>
+                <button mat-menu-item><mat-icon>delete</mat-icon>Delete</button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>

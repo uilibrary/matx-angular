@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-disabled-tooltip',
@@ -8,7 +8,7 @@ import {FormControl} from '@angular/forms';
 })
 export class DisabledTooltipComponent implements OnInit {
 
-  disabled = new FormControl(false);
+  disabled = new UntypedFormControl(false);
   
   constructor() { }
 

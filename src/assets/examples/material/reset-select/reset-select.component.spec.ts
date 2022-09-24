@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ResetSelectComponent } from './reset-select.component';
 
@@ -6,7 +6,7 @@ describe('ResetSelectComponent', () => {
   let component: ResetSelectComponent;
   let fixture: ComponentFixture<ResetSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ResetSelectComponent ]
     })

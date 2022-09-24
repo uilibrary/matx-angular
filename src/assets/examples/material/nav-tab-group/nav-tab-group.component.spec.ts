@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NavTabGroupComponent } from './nav-tab-group.component';
 
@@ -6,7 +6,7 @@ describe('NavTabGroupComponent', () => {
   let component: NavTabGroupComponent;
   let fixture: ComponentFixture<NavTabGroupComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NavTabGroupComponent ]
     })

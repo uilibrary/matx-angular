@@ -1,0 +1,5 @@
+<div class="m-333">
+  <div *ngFor="let example of examples" class="mb-24">
+    <matx-example-viewer [exampleId]="example" [path]="componentDirPath" [data]="exampleComponents[example]"></matx-example-viewer>
+  </div>
+</div>

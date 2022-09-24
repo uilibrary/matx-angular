@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-custom-panel-select',
@@ -11,7 +11,7 @@ import {FormControl} from '@angular/forms';
 })
 export class CustomPanelSelectComponent implements OnInit {
 
-  panelColor = new FormControl('red');
+  panelColor = new UntypedFormControl('red');
   
   constructor() { }
 

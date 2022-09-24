@@ -1,0 +1,39 @@
+<div class="mat-elevation-z1 rounded overflow-hidden">
+  <mat-accordion multi="true" displayMode="flat" class="matx-example-viewer-accordion">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header collapsedHeight="48px" expandedHeight="48px" class="light-gray matx-example-viewer-header">
+        <mat-panel-title>
+          {{data?.title}} 
+        </mat-panel-title>
+        <button mat-button color="warn" ><mat-icon>code</mat-icon> Code</button>
+      </mat-expansion-panel-header>
+  
+      <div class="example-viewer-tab-wrap">
+        <mat-tab-group class="mb-24">
+          <mat-tab label="HTML">
+            <div class="code-wrap" id="html">
+                <pre><code matxHighlight [languages]="['xml']" [path]="componentPath +'.html'"></code></pre>
+            </div>
+          </mat-tab>
+          <mat-tab label="TS">
+              <div class="code-wrap" id="ts">
+                <pre><code matxHighlight [path]="componentPath+'.ts'"></code></pre>
+              </div>
+          </mat-tab>
+          <mat-tab label="SCSS">
+            <div class="code-wrap" id="scss">
+                <pre><code matxHighlight [path]="componentPath+'.scss'"></code></pre>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel expanded style="position: relative;">
+      <div class="example-component pt-16">
+        <div #exampleContainer></div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

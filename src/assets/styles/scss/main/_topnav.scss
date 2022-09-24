@@ -1,4 +1,4 @@
-.topnav {	
+.topnav {
 	&:after {
 		content:"";
 		display:table;
@@ -6,8 +6,8 @@
 	}
 	label.menu-toggle {
 		height: 48px;
-    width: 48px;
-    box-sizing: border-box;
+        width: 48px;
+        box-sizing: border-box;
 		padding: 12px;
 		border-radius: 50%;
 		.mat-icon {
@@ -49,7 +49,7 @@
 		margin: 0px;
 		display: inline-block;
 	}
-	
+
 	a, label {
 		display: flex;
 		flex-direction: row;
@@ -67,21 +67,21 @@
 			margin-right: 2px;
 		}
 	}
-	ul li ul li:hover,
-	ul li ul li.open { 
-		background: #eeeeee; 
-	}
+	// ul li ul li:hover,
+	// ul li ul li.open {
+	// 	background: #eeeeee;
+	// }
 
 	ul ul {
 		opacity: 0;
 		visibility: hidden;
-		position: absolute; 
-		background: #ffffff;
+		position: absolute;
+		// background: #ffffff;
 		color: rgba(0,0,0,.87);
 		/* has to be the same number as the "line-height" of "nav a" */
-		top: 48px; 
-		transform: translateY(-100px);
-		transition: all 0.3s ease-in-out;
+		top: 48px;
+		transform: translateY(-10px);
+		transition: all 0.15s ease-in-out;
 		z-index: -1;
 	}
 
@@ -100,13 +100,13 @@
 	}
 	ul ul ul {
 		top: 0;
-		left:170px; 
+		left:170px;
 	}
 	ul ul ul li {
 		position: relative;
 		top: 0;
 	}
-	
+
 	li > a:after { content:  ' +'; }
 	li > a:only-child:after { content: ''; }
 }
@@ -148,7 +148,7 @@
 			transform: translateY(0px) !important;
 			transition: max-height 0.3s ease-in-out;
 		}
-		
+
 		[id^=drop]:checked + ul {
 			opacity: 1;
 			visibility: visible;
@@ -175,11 +175,11 @@
 		ul ul ul a {
 			padding: 0 80px;
 		}
-		
+
 		ul li ul li .toggle,
 		ul ul a,
 		ul ul ul a{
-			padding:14px 20px;	
+			padding:14px 20px;
 		}
 
 		/* Hide Dropdowns by Default */
@@ -191,14 +191,14 @@
 			box-shadow: none !important;
 			z-index: 1;
 		}
-			
+
 		/* Hide menus on hover */
 		ul li:hover > div > div > ul,
 		ul li:hover > div > ul {
 			opacity: 0;
 			visibility: hidden;
 		}
-		
+
 		ul ul li {
 			opacity: 1;
 			visibility: visible;

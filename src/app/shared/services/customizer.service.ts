@@ -4,181 +4,117 @@ import { filter } from "rxjs/operators";
 import { LayoutService } from "./layout.service";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class CustomizerService {
+
+
   colors = [
     {
       class: "black",
-      active: false,
+      active: false
     },
     {
       class: "white",
-      active: false,
+      active: false
     },
     {
       class: "dark-blue",
-      active: false,
+      active: false
     },
     {
       class: "grey",
-      active: false,
+      active: false
     },
     {
       class: "brown",
-      active: false,
+      active: false
     },
     {
       class: "gray",
-      active: false,
+      active: false
     },
     {
       class: "purple",
-      active: false,
+      active: false
     },
     {
       class: "blue",
-      active: false,
+      active: false
     },
-
+    
     {
       class: "indigo",
-      active: false,
+      active: false
     },
     {
       class: "yellow",
-      active: false,
+      active: false
     },
     {
       class: "green",
-      active: false,
+      active: false
     },
     {
       class: "pink",
-      active: false,
+      active: false
     },
     {
       class: "red",
-      active: false,
+      active: false
     },
     {
       class: "slate",
-      active: false,
-    },
-  ];
-
-  layoutOptions = [
-    {
-      name: "Vertical Nav",
-      thumbnail: "assets/images/screenshots/layout1-customizer.png",
-      options: {
-        navigationPos: "side",
-        sidebarColor: "white",
-        sidebarCompactToggle: false,
-        topbarColor: "blue",
-        footerColor: "blue",
-        matTheme: "matx-blue",
-      },
-    },
-    {
-      name: "Dark Sidebar",
-      thumbnail: "assets/images/screenshots/layout1-blue-customizer.png",
-      options: {
-        navigationPos: "side",
-        sidebarColor: "slate",
-        sidebarCompactToggle: false,
-        topbarColor: "blue",
-        footerColor: "slate",
-        matTheme: "matx-blue",
-      },
-    },
-    {
-      name: "Night Mode",
-      thumbnail: "assets/images/screenshots/layout3-customizer.png",
-      options: {
-        sidebarColor: "slate",
-        sidebarCompactToggle: false,
-        topbarColor: "purple",
-        footerColor: "slate",
-        matTheme: "matx-dark-purple",
-      },
+      active: false
     }
   ];
-
   selectedSidebarColor;
   topbarColors: any[];
   sidebarColors: any[];
   footerColors: any[];
 
-  constructor(private router: Router, private layout: LayoutService) {
+  constructor(
+    private router: Router,     
+    private layout: LayoutService,
+  ) {
     this.topbarColors = this.getTopbarColors();
     this.sidebarColors = this.getSidebarColors();
     this.footerColors = this.getFooterColors();
   }
 
   getSidebarColors() {
-    let sidebarColors = [
-      "black",
-      "slate",
-      "white",
-      "purple",
-      "blue",
-      "dark-blue",
-    ];
-    return this.colors
-      .filter((color) => {
-        return sidebarColors.includes(color.class);
-      })
-      .map((c) => {
-        c.active = c.class === this.layout.layoutConf.sidebarColor;
-        return { ...c };
-      });
+    let sidebarColors = ['black', 'slate', 'white', 'grey', 'brown', 'purple', 'dark-blue',];
+    return this.colors.filter(color => {
+      return sidebarColors.includes(color.class);
+    })
+    .map(c => {
+      c.active = c.class === this.layout.layoutConf.sidebarColor;
+      return {...c};
+    });
   }
 
   getTopbarColors() {
-    let topbarColors = [
-      "black",
-      "slate",
-      "white",
-      "dark-gray",
-      "purple",
-      "dark-blue",
-      "blue",
-      "pink",
-    ];
-    return this.colors
-      .filter((color) => {
-        return topbarColors.includes(color.class);
-      })
-      .map((c) => {
-        c.active = c.class === this.layout.layoutConf.topbarColor;
-        return { ...c };
-      });
+    let topbarColors = ['black', 'slate', 'white', 'dark-gray', 'purple', 'dark-blue', 'indigo', 'pink', 'red', 'yellow', 'green'];
+    return this.colors.filter(color => {
+      return topbarColors.includes(color.class);
+    })
+    .map(c => {
+      c.active = c.class === this.layout.layoutConf.topbarColor;
+      return {...c};
+    });
   }
 
   getFooterColors() {
-    let footerColors = [
-      "black",
-      "slate",
-      "white",
-      "dark-gray",
-      "purple",
-      "dark-blue",
-      "indigo",
-      "pink",
-      "red",
-      "yellow",
-      "green",
-    ];
-    return this.colors
-      .filter((color) => {
-        return footerColors.includes(color.class);
-      })
-      .map((c) => {
-        c.active = c.class === this.layout.layoutConf.footerColor;
-        return { ...c };
-      });
+    let footerColors = ['black', 'slate', 'white', 'dark-gray', 'purple', 'dark-blue', 'indigo', 'pink', 'red', 'yellow', 'green'];
+    return this.colors.filter(color => {
+      return footerColors.includes(color.class);
+    })
+    .map(c => {
+      c.active = c.class === this.layout.layoutConf.footerColor;
+      return {...c};
+    });
   }
+
 
   changeSidebarColor(color) {
     this.layout.publishLayoutChange({ sidebarColor: color.class });
@@ -239,4 +175,5 @@ export class CustomizerService {
       this.addClass(el, className);
     }
   }
+
 }

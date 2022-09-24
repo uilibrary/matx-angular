@@ -1,43 +1,42 @@
-import { Component, OnInit } from "@angular/core";
-import {
-  Validators,
-  FormControl,
-  FormBuilder,
-  FormGroup
-} from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
-import { matxAnimations } from "app/shared/animations/matx-animations";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: "app-signup",
-  templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.scss"],
-  animations: matxAnimations
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signupForm: FormGroup;
+  @ViewChild(MatProgressBar) progressBar: MatProgressBar;
+  @ViewChild(MatButton) submitButton: MatButton;
 
-  constructor(private fb: FormBuilder) {}
+  signupForm: UntypedFormGroup
+  constructor() {}
 
   ngOnInit() {
-    const password = new FormControl("", Validators.required);
-    const confirmPassword = new FormControl(
-      "",
-      CustomValidators.equalTo(password)
-    );
+    const password = new UntypedFormControl('', Validators.required);
 
-    this.signupForm = this.fb.group({
-      username: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
+    this.signupForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
       password: password,
-      agreed: [false, Validators.required]
-    });
+      agreed: new UntypedFormControl('', (control: UntypedFormControl) => {
+        const agreed = control.value;
+        if(!agreed) {
+          return { agreed: true }
+        }
+        return null;
+      })
+    })
   }
 
-  onSubmit() {
-    if (!this.signupForm.invalid) {
-      // do what you wnat with your data
-      console.log(this.signupForm.value);
-    }
+  signup() {
+    const signupData = this.signupForm.value;
+    console.log(signupData);
+
+    this.submitButton.disabled = true;
+    this.progressBar.mode = 'indeterminate';
   }
+
 }

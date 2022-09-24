@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EchartPieComponent } from './echart-pie.component';
 
@@ -6,7 +6,7 @@ describe('EchartPieComponent', () => {
   let component: EchartPieComponent;
   let fixture: ComponentFixture<EchartPieComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EchartPieComponent ]
     })

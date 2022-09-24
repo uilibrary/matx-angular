@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ThemingFormFieldComponent } from './theming-form-field.component';
 
@@ -6,7 +6,7 @@ describe('ThemingFormFieldComponent', () => {
   let component: ThemingFormFieldComponent;
   let fixture: ComponentFixture<ThemingFormFieldComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ThemingFormFieldComponent ]
     })

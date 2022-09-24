@@ -6,21 +6,23 @@ import { ScrollToDirective } from './scroll-to.directive';
 import { AppDropdownDirective } from './dropdown.directive';
 import { DropdownAnchorDirective } from './dropdown-anchor.directive';
 import { DropdownLinkDirective } from './dropdown-link.directive';
-import { MatXSideNavToggleDirective } from './matx-side-nav-toggle.directive';
-import { MatXSidenavHelperDirective, MatXSidenavTogglerDirective } from './matx-sidenav-helper/matx-sidenav-helper.directive';
-import { MatXHighlightDirective } from './matx-highlight.directive';
+import { MatxSideNavToggleDirective } from './matx-side-nav-toggle.directive';
+import { MatxSidenavHelperDirective, MatxSidenavTogglerDirective } from './matx-sidenav-helper/matx-sidenav-helper.directive';
+import { MatxHighlightDirective } from './matx-highlight.directive';
+import { AutoFocusDirective } from './auto-focus.directive';
 
 
 const directives = [
+  AutoFocusDirective,
   FontSizeDirective,
   ScrollToDirective,
   AppDropdownDirective,
   DropdownAnchorDirective,
   DropdownLinkDirective,
-  MatXSideNavToggleDirective,
-  MatXSidenavHelperDirective,
-  MatXSidenavTogglerDirective,
-  MatXHighlightDirective
+  MatxSideNavToggleDirective,
+  MatxSidenavHelperDirective,
+  MatxSidenavTogglerDirective,
+  MatxHighlightDirective
 ]
 
 @NgModule({

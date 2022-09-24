@@ -1,29 +1,25 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl
-} from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
-import { matxAnimations } from "app/shared/animations/matx-animations";
-import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
-import { AppLoaderService } from "app/shared/services/app-loader/app-loader.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatButton } from '@angular/material/button';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { AppLoaderService } from '../../../shared/services/app-loader/app-loader.service';
+import { JwtAuthService } from '../../../shared/services/auth/jwt-auth.service';
 
 @Component({
-  selector: "app-signin",
-  templateUrl: "./signin.component.html",
-  styleUrls: ["./signin.component.scss"],
-  animations: matxAnimations
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit, AfterViewInit {
-  signinForm: FormGroup;
+export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(MatProgressBar) progressBar: MatProgressBar;
+  @ViewChild(MatButton) submitButton: MatButton;
+
+  signinForm: UntypedFormGroup;
   errorMsg = '';
-  return: string;
-  loading: Boolean;
+  // return: string;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -37,50 +33,53 @@ export class SigninComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.signinForm = new FormGroup({
-      username: new FormControl('Watson', Validators.required),
-      password: new FormControl('12345678', Validators.required),
-      rememberMe: new FormControl(true)
+    this.signinForm = new UntypedFormGroup({
+      username: new UntypedFormControl('Watson', Validators.required),
+      password: new UntypedFormControl('12345678', Validators.required),
+      rememberMe: new UntypedFormControl(true)
     });
 
-    this.route.queryParams
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(params => this.return = params['return'] || '/');
+    // this.route.queryParams
+    //   .pipe(takeUntil(this._unsubscribeAll))
+    //   .subscribe(params => this.return = params['return'] || '/');
   }
 
   ngAfterViewInit() {
-    // setTimeout(() => {
-      this.autoSignIn();
-    // })
+    this.autoSignIn();
   }
 
   ngOnDestroy() {
-    this._unsubscribeAll.next();
+    this._unsubscribeAll.next(1);
     this._unsubscribeAll.complete();
   }
 
   signin() {
     const signinData = this.signinForm.value
-    this.loading = true;
+
+    this.submitButton.disabled = true;
+    this.progressBar.mode = 'indeterminate';
+    
     this.jwtAuth.signin(signinData.username, signinData.password)
     .subscribe(response => {
-      this.loading = false;
-      this.router.navigateByUrl(this.return);
+      this.router.navigateByUrl(this.jwtAuth.return);
     }, err => {
-      this.loading = false;
+      this.submitButton.disabled = false;
+      this.progressBar.mode = 'determinate';
       this.errorMsg = err.message;
+      // console.log(err);
     })
   }
 
   autoSignIn() {    
-    if(this.return === '/') {
+    if(this.jwtAuth.return === '/') {
       return
     }
-    this.matxLoader.open(`Automatically Signing you in! \n Return url: ${this.return.substring(0, 20)}...`, {width: '320px'});
+    this.matxLoader.open(`Automatically Signing you in! \n Return url: ${this.jwtAuth.return.substring(0, 20)}...`, {width: '320px'});
     setTimeout(() => {
       this.signin();
       console.log('autoSignIn');
       this.matxLoader.close()
     }, 2000);
   }
+
 }

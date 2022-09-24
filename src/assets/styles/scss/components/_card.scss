@@ -1,14 +1,17 @@
 .mat-card {
-  margin: .5rem;
+  margin: .75rem;
   overflow: hidden;
-
+  box-sizing: border-box;
+  box-shadow: $shadow-primary !important;
   &.rounded-circle {
     border-radius: 200px !important;
   }
 }
+
 .mat-card.default {
   padding: 0;
 }
+
 .mat-card.default .mat-card-title {
   padding-top: 1rem;
   padding-left: 1rem;

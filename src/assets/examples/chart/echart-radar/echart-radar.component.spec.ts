@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EchartRadarComponent } from './echart-radar.component';
 
@@ -6,7 +6,7 @@ describe('EchartRadarComponent', () => {
   let component: EchartRadarComponent;
   let fixture: ComponentFixture<EchartRadarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EchartRadarComponent ]
     })

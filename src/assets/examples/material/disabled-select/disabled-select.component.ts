@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-disabled-select',
@@ -8,7 +8,7 @@ import {FormControl} from '@angular/forms';
 })
 export class DisabledSelectComponent implements OnInit {
 
-  disableSelect = new FormControl(false);
+  disableSelect = new UntypedFormControl(false);
   
   constructor() { }
 

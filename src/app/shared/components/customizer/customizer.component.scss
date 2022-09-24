@@ -1,6 +1,6 @@
 .handle {
     position: fixed;
-    bottom: 90px;
+    bottom: 30px;
     right: 30px;
     z-index: 99;
 }
@@ -23,9 +23,8 @@
     border-radius: 0;
   }
   .mat-card-content  {
-        position: relative;
         padding: 1rem 1.5rem 2rem;
-        height: calc(100vh - 120px);
+        max-height: calc(100vh - 80px);
     }
 }
 .pos-rel {
@@ -59,52 +58,6 @@
       right: 0;
       margin: auto;
       top: 6px;
-    }
-  }
-}
-
-.layout-box {
-  width: 100%;
-  margin: 16px 0;
-  max-height: 150px;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  > div {
-    overflow: hidden;
-    display: flex;
-    position: relative;
-    // height: 76px;
-    width: 100%;
-    &:hover {
-      &::before,
-      .layout-name {
-        display: block;
-      }
-    }
-    &::before,
-    .layout-name {
-      text-align: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: none;
-    }
-    &::before {
-      content: " ";
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
-    }
-    .layout-name {
-      color: #ffffff;
-      top: calc(50% - 18px)
-    }
-    img {
-      // position: absolute;
-      top: 0;
-      left: 0;
     }
   }
 }

@@ -1,7 +1,86 @@
+$border-color: rgba(0, 0, 0, 0.1);
+
+$utilities: (
+  "shadow": null,
+  "border-color": null,
+  "order": null,
+  "negative-margin": null,
+  "negative-margin-x": null,
+  "negative-margin-y": null,
+  "negative-margin-top": null,
+  "negative-margin-right": null,
+  "negative-margin-bottom": null,
+  "negative-margin-left": null,
+  "color": null,
+  "background-color": null,
+  "gradient-color": null,
+  "font-family": null,
+  "border-light": (
+    property: border,
+    class: "border-light",
+    values: (
+      null: 1px solid rgba(255, 255, 255, 0.1)
+    )
+  ),
+  "border-top-light": (
+    property: border-top,
+    class: "border-top-light",
+    values: (
+      null: 1px solid rgba(255, 255, 255, 0.1)
+    )
+  ),
+  "border-right-light": (
+    property: border-right,
+    class: "border-right-light",
+    values: (
+      null: 1px solid rgba(255, 255, 255, 0.1)
+    )
+  ),
+  "border-bottom-light": (
+    property: border-bottom,
+    class: "border-bottom-light",
+    values: (
+      null: 1px solid rgba(255, 255, 255, 0.1)
+    )
+  ),
+  "border-left-light": (
+    property: border-left,
+    class: "border-left-light",
+    values: (
+      null: 1px solid rgba(255, 255, 255, 0.1)
+    )
+  ),
+
+  "font-weight": (
+      property: font-weight,
+      values: (
+        light: 300,
+        lighter: lighter,
+        normal: 400,
+        semi: 500,
+        bold: 600,
+        bolder: bolder
+      )
+    ),
+);
+
 @import "avatar";
-// @import "border";
 @import "height-width";
+@import "icons";
 @import "spacing";
 @import "others";
-@import "display";
-@import "alignment";
+
+
+
+
+@import "base/functions";
+@import "base/variables";
+@import "base/mixins";
+@import "base/utilities";
+@import "base/utilities/api";
+
+
+
+
+
+

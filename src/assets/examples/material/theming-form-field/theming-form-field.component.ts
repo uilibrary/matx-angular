@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-theming-form-field',
@@ -8,9 +8,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ThemingFormFieldComponent implements OnInit {
 
-  options: FormGroup;
+  options: UntypedFormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     this.options = fb.group({
       color: 'primary',
       fontSize: [16, Validators.min(10)],

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CustomRipplesComponent } from './custom-ripples.component';
 
@@ -6,7 +6,7 @@ describe('CustomRipplesComponent', () => {
   let component: CustomRipplesComponent;
   let fixture: ComponentFixture<CustomRipplesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CustomRipplesComponent ]
     })

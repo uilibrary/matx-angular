@@ -1,35 +1,20 @@
-<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96">
+<div class="mat-bg-primary m-12 px-24 py-24 rounded">
   <h5 class="text-white text-16 mb-16 font-weight-bold">Last 12 Months Sales</h5>
-  <div
-    height="180"
-    echarts
-    class="chart m-0"
-    [options]="dailyTrafficChartBar"
-  ></div>
+  <div height="180" echarts class="chart m-0" [options]="dailyTrafficChartBar"></div>
 </div>
 <div class="mt--72">
   <div fxLayout="row wrap">
     <div fxFlex="100" fxFlex.sm="70" fxFlex.gt-sm="70">
       <div fxLayout="row wrap">
-        <div
-          *ngFor="let item of statCardList"
-          fxFlex="100"
-          fxFlex.sm="50"
-          fxFlex.gt-sm="50"
-        >
-          <mat-card
-            class="p-24"
-            fxFlex
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
-          >
+        <div *ngFor="let item of statCardList" fxFlex="100" fxFlex.sm="50" fxFlex.gt-sm="50">
+          <mat-card class="p-24" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
             <div fxLayout="row" fxLayoutAlign="center center">
-              <mat-icon class="text-48 mat-color-{{item.color}}">{{
+              <mat-icon class="text-48 text-{{item.color}}">{{
                 item.icon
-              }}</mat-icon>
+                }}</mat-icon>
               <div class="ml-12">
                 <p class="m-0 text-muted mb-4">{{ item.title }}</p>
-                <h5 class="m-0 mat-color-{{item.color}}">{{ item.amount }}</h5>
+                <h5 class="m-0 text-{{item.color}}">{{ item.amount }}</h5>
               </div>
             </div>
             <button mat-icon-button matTooltip="view more">
@@ -40,23 +25,13 @@
       </div>
 
       <mat-card class="p-0 overflow-x-auto" fxLayout="row wrap">
-        <table
-          mat-table
-          fxFlex
-          [dataSource]="productList"
-          *ngIf="productList"
-          class="mat-elevation-z1 min-w-600"
-        >
+        <table mat-table fxFlex [dataSource]="productList" *ngIf="productList" class="mat-elevation-z1 min-w-600">
           <!-- image Column -->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td class="py-12" mat-cell *matCellDef="let element">
               <div fxLayout="row wrap" fxLayoutAlign="start center">
-                <img
-                  class="avatar-sm rounded-circle"
-                  src="{{ element.imgUrl }}"
-                  alt="{{ element.name }}"
-                />
+                <img class="avatar-sm rounded-circle" src="{{ element.imgUrl }}" alt="{{ element.name }}" />
                 <p class="m-0 ml-12 text-capitalize">
                   {{ element.name }}
                 </p>
@@ -74,11 +49,7 @@
           <ng-container matColumnDef="available">
             <th mat-header-cell *matHeaderCellDef>Stock Status</th>
             <td mat-cell *matCellDef="let element">
-              <mat-chip
-                class="align-middle py-4 px-8"
-                [color]="getProductStatus(element.available).color"
-                selected
-              >
+              <mat-chip class="align-middle py-4 px-8" [color]="getProductStatus(element.available).color" selected>
                 {{ getProductStatus(element.available).status }}
               </mat-chip>
             </td>
@@ -102,68 +73,61 @@
       </mat-card>
 
       <div fxLayout="row wrap">
-        <mat-card fxFlex="100" fxFlex.gt-xs="calc(50% - 16px)">
-          <div fxLayout="row" fxLayoutAlign="start center">
-            <button class="mat-elevation-z0" mat-mini-fab color="primary">
-              <mat-icon class="mat-18">
-                trending_up
-              </mat-icon>
-            </button>
-            <div class="mat-card-title mat-color-primary m-0 ml-12">
-              Active Users
+        <div fxFlex="100%" fxFlex.gt-xs="calc(50% - 16px)">
+          <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <button class="mat-elevation-z0" mat-mini-fab color="primary">
+                <mat-icon class="mat-18">
+                  trending_up
+                </mat-icon>
+              </button>
+              <div class="mat-card-title mat-color-primary m-0 ml-12">
+                Active Users
+              </div>
             </div>
-          </div>
-          <div
-            class="mt-16"
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
-          >
-            <h2 class="m-0 text-muted text-28 font-weight-bold">
-              10.8k
-            </h2>
-            <div fxLayout="row wrap" fxLayoutAlign="start center">
-              <div class="small-circle mat-bg-primary">
-                <mat-icon class="text-12">
+            <div class="mt-16" fxLayout="row" fxLayoutAlign="space-between center">
+              <h2 class="m-0 text-muted text-28 font-weight-bold">
+                10.8k
+              </h2>
+              <div fxLayout="row wrap" fxLayoutAlign="start center">
+                <mat-icon class="text-14 text-primary">
                   expand_less
                 </mat-icon>
+                <small class="m-0 ml-4 mat-color-primary text-12">
+                  (+21%)
+                </small>
               </div>
-              <small class="m-0 ml-4 mat-color-primary text-12">
-                (+21%)
-              </small>
             </div>
-          </div>
-        </mat-card>
-        <mat-card fxFlex="100" fxFlex.gt-xs="calc(50% - 16px)">
-          <div fxLayout="row" fxLayoutAlign="start center">
-            <button class="mat-elevation-z0" mat-mini-fab color="warn">
-              <mat-icon class="mat-18">
-                star_border
-              </mat-icon>
-            </button>
-            <div class="mat-card-title mat-color-warn m-0 ml-12">
-              Transactions
+          </mat-card>
+        </div>
+
+        <div fxFlex="100%" fxFlex.gt-xs="calc(50% - 16px)">
+          <mat-card fxFlex="50" fxFlex.gt-xs="calc(50% - 16px)">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <button class="mat-elevation-z0" mat-mini-fab color="warn">
+                <mat-icon class="mat-18">
+                  star_border
+                </mat-icon>
+              </button>
+              <div class="mat-card-title mat-color-warn m-0 ml-12">
+                Transactions
+              </div>
             </div>
-          </div>
-          <div
-            class="mt-16"
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
-          >
-            <h2 class="m-0 text-muted text-28 font-weight-bold">
-              $2.8M
-            </h2>
-            <div fxLayout="row wrap" fxLayoutAlign="start center">
-              <div class="small-circle mat-bg-warn">
-                <mat-icon class="text-12">
+            <div class="mt-16" fxLayout="row" fxLayoutAlign="space-between center">
+              <h2 class="m-0 text-muted text-28 font-weight-bold">
+                $2.8M
+              </h2>
+              <div fxLayout="row wrap" fxLayoutAlign="start center">
+                <mat-icon class="text-14 text-warn">
                   expand_less
                 </mat-icon>
+                <small class="m-0 ml-4 mat-color-warn text-12">
+                  (+21%)
+                </small>
               </div>
-              <small class="m-0 ml-4 mat-color-warn text-12">
-                (+21%)
-              </small>
             </div>
-          </div>
-        </mat-card>
+          </mat-card>
+        </div>
       </div>
 
       <div class="py-16" fxLayout="column wrap">
@@ -173,11 +137,7 @@
           <mat-card fxLayout="row wrap" fxLayoutAlign="space-between center">
             <div fxLayout="row wrap" fxLayoutAlign="start center">
               <mat-checkbox color="accent"></mat-checkbox>
-              <button
-                mat-mini-fab
-                [color]="item.color"
-                class="mx-24 mat-elevation-z0"
-              >
+              <button mat-mini-fab [color]="item.color" class="mx-24 mat-elevation-z0">
                 <mat-icon class="mat-18">
                   {{ item.icon }}
                 </mat-icon>
@@ -192,11 +152,12 @@
                 03/02/2020 07:13PM
               </p>
 
-              <div class="face-group ml-16">
-                <img class="avatar-sm" src="assets/images/face-4.jpg" />
-                <img class="avatar-sm" src="assets/images/face-4.jpg" />
-                <img class="avatar-sm" src="assets/images/face-4.jpg" />
-                <p class="number-avatar avatar-sm m-0 mat-bg-warn text-18">
+              <div class="d-flex flex-row ml-16">
+                <img class="avatar-sm rounded-circle" src="/assets/images/face-4.jpg" />
+                <img class="avatar-sm rounded-circle" src="/assets/images/face-2.jpg" />
+                <img class="avatar-sm rounded-circle" src="/assets/images/face-3.jpg" />
+                <p
+                  class="rounded-circle d-flex avatar-sm m-0 mat-bg-warn text-14 align-items-center justify-content-center">
                   +3
                 </p>
               </div>
@@ -217,15 +178,11 @@
         <mat-card fxFlex="100">
           <mat-card-title class="mb-0">Traffic Sources</mat-card-title>
           <small class="text-muted">Last 30 days</small>
-          <div
-            echarts
-            [options]="doughNutPieOptions"
-            style="height: 280px"
-          ></div>
+          <div echarts [options]="doughNutPieOptions" style="height: 280px"></div>
         </mat-card>
-        <mat-card fxFlex="100">
-          <mat-card class="text-center mat-bg-gray p-sm-24 mat-elevation-z0">
-            <img src="assets/images/illustrations/upgrade.svg" alt="upgrade" />
+        <div fxFlex="100">
+          <mat-card class="text-center mat-bg-gray p-24 mat-elevation-z0">
+            <img src="/assets/images/illustrations/upgrade.svg" alt="upgrade" />
             <p class="text-muted m-0 py-24">
               Upgrade to <b>MatX PRO</b> for <br />
               more resources
@@ -234,7 +191,7 @@
               UPGRADE
             </button>
           </mat-card>
-        </mat-card>
+        </div>
       </div>
       <div fxLayout="row wrap">
         <mat-card fxFlex="100">
@@ -242,88 +199,43 @@
 
           <p class="text-muted m-0 text-small mt-16">Today</p>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Google (102k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="50"
-              color="accent"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="50" color="accent"></mat-progress-bar>
             <small class="m-0 text-muted">Facebook (120k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Tensor (80k)</small>
           </div>
 
           <p class="text-muted m-0 text-small mt-16">Yesterday</p>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Google (102k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="50"
-              color="accent"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="50" color="accent"></mat-progress-bar>
             <small class="m-0 text-muted">Facebook (120k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Tensor (80k)</small>
           </div>
 
           <p class="text-muted m-0 text-small mt-16">Last Month</p>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Google (102k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="50"
-              color="accent"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="50" color="accent"></mat-progress-bar>
             <small class="m-0 text-muted">Facebook (120k)</small>
           </div>
           <div class="py-4" fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-progress-bar
-              fxFlex="60"
-              mode="determinate"
-              value="75"
-              color="primary"
-            ></mat-progress-bar>
+            <mat-progress-bar fxFlex="60" mode="determinate" value="75" color="primary"></mat-progress-bar>
             <small class="m-0 text-muted">Tensor (80k)</small>
           </div>
         </mat-card>

@@ -1,0 +1,80 @@
+@import 'header-top.theme';
+@import 'sidenav.theme';
+@import 'matx-calendar.theme';
+@import 'hopscotch.theme';
+@import 'info-card.theme';
+
+@mixin color-classes($theme) {
+  $color: map-get($theme, color);
+  $foreground: map-get($color, foreground);
+  $text-color: map-get($foreground, text);
+  $divider: map-get($foreground, divider);
+
+
+  $background: map-get($color, background);
+  $primary: map-get(map-get($color, primary), main);
+  $accent: map-get(map-get($color, accent), main);
+  $warn: map-get(map-get($color, warn), main);
+  $unselected-chip: map-get($background, 'unselected-chip');
+
+
+
+  // Body color
+  color: $text-color;
+
+  .text-muted,
+  .mat-heading-label {
+    color: map-get($foreground, 'secondary-text') !important;
+  }
+  .text-primary {
+    color: $primary;
+  }
+  .text-accent {
+    color: $accent;
+  }
+  .text-warn {
+    color: $warn;
+  }
+  .mat-bg-primary {
+    background-color: $primary;
+  }
+  .mat-bg-accent {
+    background-color: $accent;
+  }
+  .mat-bg-warn {
+    background-color: $warn;
+  }
+  .mat-bg-chip {
+    background-color: $unselected-chip;
+  }
+  .mat-bg-card {
+    background-color: map-get($background, card);
+  }
+  .mat-bg-default {
+    background-color: map-get($background, background);
+  }
+
+  .branding {
+      border-bottom: 1px solid $divider;
+  }
+
+  @media only screen and (max-width: 959px) {
+    .mat-bg-default--mobile {
+        background-color: map-get($background, background);
+    }
+    .mat-bg-card--mobile {
+        background-color: map-get($background, card);
+    }
+  }
+}
+
+@mixin matx-theme($theme) {
+//   @include typography-color($theme);
+  @include color-classes($theme);
+
+  @include matx-calendar($theme);
+  @include hopscotch($theme);
+  @include header-top($theme);
+  @include sidenav($theme);
+  @include info-card-theme($theme);
+}

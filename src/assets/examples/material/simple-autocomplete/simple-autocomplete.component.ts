@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-simple-autocomplete',
@@ -8,7 +8,7 @@ import {FormControl} from '@angular/forms';
 })
 export class SimpleAutocompleteComponent implements OnInit {
 
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
   options: string[] = ['One', 'Two', 'Three'];
   
   constructor() { }

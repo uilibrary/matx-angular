@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { LocalStoreService } from "../local-store.service";
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { map, catchError, delay } from "rxjs/operators";
 import { User } from "../../models/user.model";
 import { of, BehaviorSubject, throwError } from "rxjs";
@@ -9,12 +9,12 @@ import { environment } from "environments/environment";
 
 // ================= only for demo purpose ===========
 const DEMO_TOKEN =
-  "eyJfaWQiOiI1YjhkNDc4MDc4NmM3MjE3MjBkYzU1NzMiLCJlbWFpbCI6InJhZmkuYm9ncmFAZ21haWwuY29tIiwicm9sZSI6IlNBIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE1ODc3MTc2NTgsImV4cCI6MTU4ODMyMjQ1OH0.dXw0ySun5ex98dOzTEk0lkmXJvxg3Qgz4ed";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YjhkNDc4MDc4NmM3MjE3MjBkYzU1NzMiLCJlbWFpbCI6InJhZmkuYm9ncmFAZ21haWwuY29tIiwicm9sZSI6IlNBIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE1ODc3MTc2NTgsImV4cCI6MTU4ODMyMjQ1OH0.dXw0ySun5ex98dOzTEk0lkmXJvxg3Qgz4ed";
 
 const DEMO_USER: User = {
-  id: "4sa00c45639d2c0c54b354ba",
-  displayName: "John Doe",
-  role: "Admin",
+  id: "5b700c45639d2c0c54b354ba",
+  displayName: "Watson Joyce",
+  role: "SA",
 };
 // ================= you will get those data from server =======
 
@@ -24,17 +24,22 @@ const DEMO_USER: User = {
 export class JwtAuthService {
   token;
   isAuthenticated: Boolean;
-  user: User;
+  user: User = {};
   user$ = (new BehaviorSubject<User>(this.user));
   signingIn: Boolean;
+  return: string;
   JWT_TOKEN = "JWT_TOKEN";
   APP_USER = "MATX_USER";
 
   constructor(
     private ls: LocalStoreService,
     private http: HttpClient,
-    private router: Router
-  ) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams
+      .subscribe(params => this.return = params['return'] || '/');
+  }
 
   public signin(username, password) {
     return of({token: DEMO_TOKEN, user: DEMO_USER})
@@ -96,6 +101,7 @@ export class JwtAuthService {
     //       return profile;
     //     }),
     //     catchError((error) => {
+    //       this.signout();
     //       return of(error);
     //     })
     //   );

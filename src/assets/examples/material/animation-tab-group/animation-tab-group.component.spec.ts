@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AnimationTabGroupComponent } from './animation-tab-group.component';
 
@@ -6,7 +6,7 @@ describe('AnimationTabGroupComponent', () => {
   let component: AnimationTabGroupComponent;
   let fixture: ComponentFixture<AnimationTabGroupComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AnimationTabGroupComponent ]
     })

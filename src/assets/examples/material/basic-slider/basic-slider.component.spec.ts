@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BasicSliderComponent } from './basic-slider.component';
 
@@ -6,7 +6,7 @@ describe('BasicSliderComponent', () => {
   let component: BasicSliderComponent;
   let fixture: ComponentFixture<BasicSliderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BasicSliderComponent ]
     })

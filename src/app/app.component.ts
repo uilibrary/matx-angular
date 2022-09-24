@@ -2,10 +2,11 @@ import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
-import { RoutePartsService } from "./shared/services/route-parts.service";
-// import { ThemeService } from './shared/services/theme.service';
+import { RoutePartsService } from './shared/services/route-parts.service';
 
 import { filter } from 'rxjs/operators';
+import { UILibIconService } from './shared/services/ui-lib-icon.service';
+import { ThemeService } from './shared/services/theme.service';
 import { LayoutService } from './shared/services/layout.service';
 
 @Component({
@@ -14,29 +15,34 @@ import { LayoutService } from './shared/services/layout.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  appTitle = 'MatX Angular Dashboard';
+  appTitle = 'Matx';
   pageTitle = '';
 
   constructor(
-    public title: Title, 
-    private router: Router, 
+    public title: Title,
+    private router: Router,
     private activeRoute: ActivatedRoute,
     private routePartsService: RoutePartsService,
-    // private themeService: ThemeService,
-    private layout: LayoutService,
-  ) { }
+    private iconService: UILibIconService,
+    private layoutService: LayoutService
+  ) {
+    iconService.init()
+  }
 
   ngOnInit() {
     this.changePageTitle();
-    // this.layout.setAppLayout()
+    // this.themeService.applyMatTheme(this.layoutService.layoutConf.matTheme);
   }
+
   ngAfterViewInit() {
   }
+
   changePageTitle() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((routeChange) => {
-      var routeParts = this.routePartsService.generateRouteParts(this.activeRoute.snapshot);
-      if (!routeParts.length)
+      const routeParts = this.routePartsService.generateRouteParts(this.activeRoute.snapshot);
+      if (!routeParts.length) {
         return this.title.setTitle(this.appTitle);
+      }
       // Extract title from parts;
       this.pageTitle = routeParts
                       .reverse()
@@ -46,5 +52,4 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.title.setTitle(this.pageTitle);
     });
   }
-  
 }

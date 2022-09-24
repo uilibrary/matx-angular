@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TwoWayBindingSelectComponent } from './two-way-binding-select.component';
 
@@ -6,7 +6,7 @@ describe('TwoWayBindingSelectComponent', () => {
   let component: TwoWayBindingSelectComponent;
   let fixture: ComponentFixture<TwoWayBindingSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TwoWayBindingSelectComponent ]
     })

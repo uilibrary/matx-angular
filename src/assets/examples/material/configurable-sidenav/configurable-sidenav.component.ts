@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurableSidenavComponent implements OnInit {
 
-  mode = new FormControl('over');
+  mode = new UntypedFormControl('over');
 
   constructor() { }
 

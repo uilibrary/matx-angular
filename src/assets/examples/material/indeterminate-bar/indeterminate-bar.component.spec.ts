@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { IndeterminateBarComponent } from './indeterminate-bar.component';
 
@@ -6,7 +6,7 @@ describe('IndeterminateBarComponent', () => {
   let component: IndeterminateBarComponent;
   let fixture: ComponentFixture<IndeterminateBarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ IndeterminateBarComponent ]
     })

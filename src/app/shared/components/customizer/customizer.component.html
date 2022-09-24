@@ -10,20 +10,9 @@
   <mat-card class="p-0">
     <mat-card-title class="m-0 light-gray">
       <div class="card-title-text" fxLayout="row wrap" fxLayoutAlign="center center">
-        <mat-button-toggle-group #viewMode="matButtonToggleGroup">
-          <mat-button-toggle matTooltip="Demos" value="demos" [checked]="true" aria-label="T">
-            <mat-icon>apps</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle matTooltip="Settings" value="settings" aria-label="">
-            <mat-icon>settings</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle matTooltip="JSON" value="json" aria-label="">
-            <mat-icon>code</mat-icon>
-          </mat-button-toggle>
-          
-        </mat-button-toggle-group>
-
-        
+        <button mat-flat-button [color]="viewMode === 'options' ? 'primary':''" (click)="viewMode = 'options'">Options</button>
+        <span fxFlex="15px"></span>
+        <button mat-flat-button [color]="viewMode === 'json' ? 'primary':''" (click)="viewMode = 'json'">Json</button>
         <span fxFlex></span>
         <button 
         class="card-control" 
@@ -33,45 +22,53 @@
         </button>
       </div>
     </mat-card-title>
-    <mat-card-content *ngIf="viewMode.value === 'json'" style="min-height: 100vh">
-        <a class="text-primary" href="http://demos.ui-lib.com/matx-angular-doc/layout.html"><small>What is this?</small></a>
+    <mat-card-content *ngIf="viewMode === 'json'" style="min-height: 100vh">
+        <!-- <pre class="text-muted">{{this.layoutConf | json}}</pre> -->
         <pre><code [matxHighlight]="this.layoutConf | json"></code></pre>
+        <div>
+          <span fxFlex></span>
+          <a href="http://demos.ui-lib.com/matx-doc/#layout" target="_blank" mat-mini-fab><mat-icon>help</mat-icon></a>
+        </div>
     </mat-card-content>
 
-    <mat-card-content [perfectScrollbar] *ngIf="viewMode.value === 'demos'">
-      
-      <div class="layout-boxes">
-        <div class="layout-box" *ngFor="let demo of customizer.layoutOptions" (click)="layout.publishLayoutChange(demo.options)">
-          <div>
-            <span class="layout-name">
-              <button mat-raised-button color="accent">
-                {{demo.name}}
-              </button>
-            </span>
-            <img [src]="demo.thumbnail" [alt]="demo.name">
-          </div>
-        </div>
+    <mat-card-content [perfectScrollbar] *ngIf="viewMode === 'options'">
+      <p><small>Customize the template then copy configuration json.</small></p>
+      <div class="pb-16 mb-16 border-bottom">
+        <h6 class="title text-muted">Layouts</h6>
+        <mat-radio-group fxLayout="column" [(ngModel)]="selectedLayout" (change)="changeLayoutStyle($event)">
+            <mat-radio-button [value]="'top'"> Top Navigation </mat-radio-button>
+            <mat-radio-button [value]="'side'"> Side Navigation </mat-radio-button>
+        </mat-radio-group>
       </div>
 
-    </mat-card-content>
-
-    <mat-card-content [perfectScrollbar] *ngIf="viewMode.value === 'settings'">
-      
      
-      <div class="pb-1 mb-1 border-bottom">
-          <h6 class="title text-muted">Header Colors</h6>
+      <!-- <div class="pb-16 mb-16 border-bottom"> -->
+          <!-- <h6 class="title text-muted">Header Colors</h6> -->
+          <!-- <div class="mb-16">
+            <mat-checkbox [(ngModel)]="isTopbarFixed" (change)="toggleTopbarFixed($event)" [disabled]="selectedLayout === 'top'" [value]="selectedLayout !== 'top'">Fixed Header</mat-checkbox>
+          </div> -->
 
-          <div class="colors">
+          <!-- <div class="colors">
               <div 
               class="color {{c.class}}" 
               *ngFor="let c of customizer.topbarColors"
               (click)="customizer.changeTopbarColor(c)">
               <mat-icon class="active-icon" *ngIf="c.active">check</mat-icon>
             </div>
-          </div>  
+          </div>   -->
+      <!-- </div> -->
+
+      <div class="pb-16 mb-16 border-bottom">
+        <h6 class="title text-muted">Material Themes</h6>
+        <div class="colors">
+            <div class="color" *ngFor="let theme of matxThemes"
+            (click)="changeTheme(theme)" [style.background]="theme.baseColor">
+              <mat-icon class="active-icon" *ngIf="theme.isActive">check</mat-icon>
+            </div>
+        </div>
       </div>
 
-      <div class="pb-1 mb-1 border-bottom">
+      <div class="pb-16 mb-16 border-bottom">
         <h6 class="title text-muted">Sidebar colors</h6>
         <div class="colors">
             <div 
@@ -83,19 +80,9 @@
         </div>
       </div>
 
-      <div class="pb-1 mb-1 border-bottom">
-        <h6 class="title text-muted">Material Themes</h6>
-        <div class="colors">
-            <div class="color" *ngFor="let theme of matxThemes"
-            (click)="changeTheme(theme)" [style.background]="theme.baseColor">
-              <mat-icon class="active-icon" *ngIf="theme.isActive">check</mat-icon>
-            </div>
-        </div>
-      </div>
-
-      <div class="pb-1 mb-1 border-bottom">
+      <div class="pb-16 mb-16 border-bottom">
         <h6 class="title text-muted">Footer Colors</h6>
-        <div class="mb-1">
+        <div class="mb-16">
           <mat-checkbox [(ngModel)]="isFooterFixed" (change)="layout.publishLayoutChange({ footerFixed: $event.checked })" [value]="selectedLayout !== 'top'">Fixed Footer</mat-checkbox>
         </div>
 
@@ -109,9 +96,9 @@
         </div>  
     </div>
 
-      <div class="pb-1 mb-1 border-bottom">
+      <div class="pb-16 mb-16 border-bottom">
           <h6 class="title text-muted">Breadcrumb</h6>
-          <div class="mb-1">
+          <div class="mb-16">
               <mat-checkbox [(ngModel)]="layoutConf.useBreadcrumb" (change)="toggleBreadcrumb($event)">Use breadcrumb</mat-checkbox>
           </div>
           <small class="text-muted">Breadcrumb types</small>
@@ -121,11 +108,28 @@
           </mat-radio-group>
         </div>
 
-      <div class="pb-1 pos-rel mb-1 border-bottom">
-        <mat-checkbox [(ngModel)]="perfectScrollbarEnabled" (change)="tooglePerfectScrollbar($event)">Custom scrollbar</mat-checkbox>
+      <div class="pb-16 pos-rel mb-16 border-bottom">
+        <h6 class="title text-muted">Navigation</h6>
+        <mat-radio-group 
+        fxLayout="column" 
+        [(ngModel)]="selectedMenu" 
+        (change)="changeSidenav($event)" 
+        [disabled]="selectedLayout === 'top'">
+          <mat-radio-button 
+          *ngFor="let type of sidenavTypes" 
+          [value]="type.value">
+            {{type.name}}
+          </mat-radio-button>
+        </mat-radio-group>
       </div>
 
+      <div class="pb-16 pos-rel mb-16 border-bottom">
+        <mat-checkbox [(ngModel)]="perfectScrollbarEnabled" (change)="tooglePerfectScrollbar($event)">Custom scrollbar</mat-checkbox>
+      </div>
+      
+      <div class="pb-16 ">
+        <mat-checkbox [(ngModel)]="isRTL" (change)="toggleDir($event)">RTL</mat-checkbox>
+      </div>
     </mat-card-content>
-
   </mat-card>
 </div>

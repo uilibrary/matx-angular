@@ -62,31 +62,31 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   productList = [
     {
-      imgUrl: "assets/images/products/headphone-2.jpg",
+      imgUrl: "/assets/images/products/headphone-2.jpg",
       name: "earphone",
       price: 100,
       available: 15
     },
     {
-      imgUrl: "assets/images/products/headphone-3.jpg",
+      imgUrl: "/assets/images/products/headphone-3.jpg",
       name: "earphone",
       price: 1500,
       available: 30
     },
     {
-      imgUrl: "assets/images/products/iphone-2.jpg",
+      imgUrl: "/assets/images/products/iphone-2.jpg",
       name: "iPhone x",
       price: 1900,
       available: 35
     },
     {
-      imgUrl: "assets/images/products/iphone-1.jpg",
+      imgUrl: "/assets/images/products/iphone-1.jpg",
       name: "iPhone x",
       price: 100,
       available: 0
     },
     {
-      imgUrl: "assets/images/products/headphone-3.jpg",
+      imgUrl: "/assets/images/products/headphone-3.jpg",
       name: "Head phone",
       price: 1190,
       available: 5
@@ -149,7 +149,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         }
       },
       tooltip: {
-        show: false,
+        show: true,
         trigger: "item",
         formatter: "{a} <br/>{b}: {c} ({d}%)"
       },
@@ -181,7 +181,8 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
           radius: ["45%", "72.55%"],
           center: ["50%", "50%"],
           avoidLabelOverlap: false,
-          hoverOffset: 5,
+          hoverOffset: 0,
+          emphasis: {disabled: true},
           stillShowZeroSum: false,
 
           label: {

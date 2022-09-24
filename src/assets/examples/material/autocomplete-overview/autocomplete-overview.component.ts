@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ export interface State {
 })
 export class AutocompleteOverviewComponent {
 
-  stateCtrl = new FormControl();
+  stateCtrl = new UntypedFormControl();
   filteredStates: Observable<State[]>;
 
   states: State[] = [

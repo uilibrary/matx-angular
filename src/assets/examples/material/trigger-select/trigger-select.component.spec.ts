@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TriggerSelectComponent } from './trigger-select.component';
 
@@ -6,7 +6,7 @@ describe('TriggerSelectComponent', () => {
   let component: TriggerSelectComponent;
   let fixture: ComponentFixture<TriggerSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TriggerSelectComponent ]
     })

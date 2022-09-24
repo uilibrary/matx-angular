@@ -5,15 +5,15 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Directive({
-  selector: '[MatXSideNavToggle]'
+  selector: '[MatxSideNavToggle]'
 })
-export class MatXSideNavToggleDirective implements OnInit, OnDestroy {
+export class MatxSideNavToggleDirective implements OnInit, OnDestroy {
   isMobile;
   screenSizeWatcher: Subscription;
   constructor(
     private mediaObserver: MediaObserver,
     @Host() @Self() @Optional() public sideNav: MatSidenav
-  ) { 
+  ) {
   }
 
   ngOnInit() {
@@ -35,10 +35,10 @@ export class MatXSideNavToggleDirective implements OnInit, OnDestroy {
   }
   initSideNav() {
     this.isMobile = this.mediaObserver.isActive('xs') || this.mediaObserver.isActive('sm');
-    // console.log(this.isMobile)
     this.updateSidenav();
-    this.screenSizeWatcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
-      this.isMobile = (change.mqAlias == 'xs') || (change.mqAlias == 'sm');
+    this.screenSizeWatcher = this.mediaObserver.asObservable()
+    .subscribe((change: MediaChange[]) => {
+        this.isMobile = (change[0].mqAlias == 'xs') || (change[0].mqAlias == 'sm');
       this.updateSidenav();
     });
   }

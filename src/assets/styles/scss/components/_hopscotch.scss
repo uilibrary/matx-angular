@@ -1,0 +1,81 @@
+/*-------- Hopscotch Tour ---------*/
+div.hopscotch-bubble,
+div.hopscotch-bubble .hopscotch-title,
+div.hopscotch-bubble .hopscotch-content,
+div.hopscotch-bubble .hopscotch-nav-button {
+  font-family: $font-family-base !important;
+}
+div.hopscotch-bubble {
+  border: 1px solid;
+  border-radius: 2px;
+}
+div.hopscotch-bubble .hopscotch-bubble-number {
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 0;
+  font-weight: 500;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+}
+div.hopscotch-bubble .hopscotch-title {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+div.hopscotch-bubble .hopscotch-content {
+  margin: -5px 0 16px;
+}
+// div.hopscotch-bubble .hopscotch-bubble-close {
+//   // background: url('../../../images/cancel.png');
+//   background-size: 8px;
+//   background-position: 8px 8px;
+//   background-repeat: no-repeat;
+//   cursor: pointer;
+// }
+div.hopscotch-bubble .hopscotch-bubble-close:active {
+  outline: 0;
+}
+/* up arrow  */
+div.hopscotch-bubble .hopscotch-bubble-arrow-container.up {
+  top: -17px;
+}
+/* right arrow */
+div.hopscotch-bubble .hopscotch-bubble-arrow-container.right {
+  right: -34px;
+}
+/* bottom arrow */
+div.hopscotch-bubble .hopscotch-bubble-arrow-container.down {
+  bottom: -34px;
+}
+/* Left Arrow */
+div.hopscotch-bubble .hopscotch-bubble-arrow-container.left {
+  left: -17px;
+}
+
+div.hopscotch-bubble .hopscotch-nav-button {
+  border: 0;
+  border-radius: 2px;
+  font-weight: normal;
+  text-shadow: none !important;
+  padding: 0 18px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  background-image: none !important;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transform: translate3d(0, 0, 0);
+  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div.hopscotch-bubble .hopscotch-nav-button:hover,
+div.hopscotch-bubble .hopscotch-nav-button:active,
+div.hopscotch-bubble .hopscotch-nav-button:focus {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+div.hopscotch-bubble .hopscotch-nav-button.prev,
+div.hopscotch-bubble .hopscotch-nav-button.prev:hover {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+}

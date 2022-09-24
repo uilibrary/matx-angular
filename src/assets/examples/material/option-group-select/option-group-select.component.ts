@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 export interface Pokemon {
   value: string;
@@ -19,7 +19,7 @@ export interface PokemonGroup {
 })
 export class OptionGroupSelectComponent implements OnInit {
 
-  pokemonControl = new FormControl();
+  pokemonControl = new UntypedFormControl();
   pokemonGroups: PokemonGroup[] = [
     {
       name: 'Grass',

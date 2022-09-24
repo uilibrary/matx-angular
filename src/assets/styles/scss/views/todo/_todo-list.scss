@@ -1,0 +1,74 @@
+.mat-menu-content {
+  button {
+    text-transform: capitalize;
+  }
+}
+
+.todo-list {
+  max-width: 100%;
+  min-height: 60px;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.todo-box {
+  padding: 20px 16px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  font-size: 14px;
+
+  display: flex;
+
+  &:hover {
+    background: rgba(119, 68, 68, 0.05);
+  }
+}
+
+.move-handler {
+  cursor: move;
+}
+
+.tag {
+  padding-right: 8px;
+  padding-left: 8px;
+  border-radius: 12px;
+  line-height: 24px;
+  box-sizing: content-box;
+  background: rgba(0, 0, 0, 0.12);
+
+  & > div {
+    display: inline-block;
+  }
+
+  .circle {
+    margin-right: 5px;
+    height: 8px;
+    width: 8px;
+    background: red;
+    border-radius: 50%;
+  }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.todo-box:last-child {
+  border: none;
+}
+
+.todo-list.cdk-drop-list-dragging .todo-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

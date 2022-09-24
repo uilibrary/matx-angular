@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CustomSnackbarOverviewComponent } from './custom-snackbar-overview.component';
 
@@ -6,7 +6,7 @@ describe('CustomSnackbarOverviewComponent', () => {
   let component: CustomSnackbarOverviewComponent;
   let fixture: ComponentFixture<CustomSnackbarOverviewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CustomSnackbarOverviewComponent ]
     })

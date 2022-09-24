@@ -8,22 +8,24 @@ import { WizardComponent } from './wizard/wizard.component';
 export const FormsRoutes: Routes = [
   {
     path: '',
-    children: [{
-      path: 'basic',
-      component: BasicFormComponent,
-      data: { title: 'Basic', breadcrumb: 'Basic' }
-    }, {
-      path: 'editor',
-      component: RichTextEditorComponent,
-      data: { title: 'Editor', breadcrumb: 'Editor' }
-    }, {
-      path: 'upload',
-      component: FileUploadComponent,
-      data: { title: 'Upload', breadcrumb: 'Upload' }
-    }, {
-      path: 'wizard',
-      component: WizardComponent,
-      data: { title: 'Wizard', breadcrumb: 'Wizard' }
-    }]
+    children: [
+      {
+        path: 'basic',
+        component: BasicFormComponent,
+        data: { title: 'Basic', breadcrumb: 'BASIC' }
+      },
+      {
+        path: 'editor',
+        component: RichTextEditorComponent,
+        data: { title: 'Editor', breadcrumb: 'EDITOR' }
+      }, {
+        path: 'upload',
+        component: FileUploadComponent,
+        data: { title: 'Upload', breadcrumb: 'UPLOAD' }
+      }, {
+        path: 'wizard',
+        component: WizardComponent,
+        data: { title: 'Wizard', breadcrumb: 'WIZARD' }
+      }]
   }
 ];

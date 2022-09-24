@@ -6,7 +6,7 @@
 /out-tsc
 
 # dependencies
-/node_modules
+node_modules
 package-lock.json
 
 # IDEs and editors
@@ -17,7 +17,7 @@ package-lock.json
 *.launch
 .settings/
 *.sublime-workspace
-
+.angular
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LabelFormFieldComponent } from './label-form-field.component';
 
@@ -6,7 +6,7 @@ describe('LabelFormFieldComponent', () => {
   let component: LabelFormFieldComponent;
   let fixture: ComponentFixture<LabelFormFieldComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LabelFormFieldComponent ]
     })

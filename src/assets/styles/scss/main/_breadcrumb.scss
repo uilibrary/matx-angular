@@ -16,8 +16,9 @@
   position: relative;
   width: 100%;
   .breadcrumb {
-    padding: 0 .333rem;
+    padding: 0 1rem;
     overflow: hidden;
+    margin-top: .5rem;
     li {
       line-height: 40px;
       &:not(:first-child):before {
@@ -33,7 +34,7 @@
 .breadcrumb-title {
   display: flex;
   align-items: center;
-  padding: 0.5rem .333rem;
+  padding: 0.5rem 1rem;
   line-height: 40px;
   .bc-title {
     font-size: $font-size-h5;

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SuffixPrefixInputComponent } from './suffix-prefix-input.component';
 
@@ -6,7 +6,7 @@ describe('SuffixPrefixInputComponent', () => {
   let component: SuffixPrefixInputComponent;
   let fixture: ComponentFixture<SuffixPrefixInputComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SuffixPrefixInputComponent ]
     })

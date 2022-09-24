@@ -64,6 +64,13 @@ b {
   font-weight: 700;
 }
 
+.mat-card-title {
+  font: {
+    size: 18px;
+    weight: 500;
+  }
+}
+
 .strikethrough {
   text-decoration: line-through;
 }
@@ -73,6 +80,7 @@ b {
 .text-capitalize {
   text-transform: capitalize;
 }
+
 
 @for $i from 10 through 78 {
   .text-#{$i} {
@@ -91,25 +99,21 @@ b {
 .font-weight-normal {
   font-weight: 400;
 }
-.font-weight-medium {
-  font-weight: 500;
-}
-.font-weight-semi-bold {
-  font-weight: 600;
-}
 .font-weight-bold {
   font-weight: bold;
 }
 .font-weight-inherit {
   font-weight: inherit;
 }
+
 .line-height-1 {
   line-height: 1 !important;
 }
-
-.whitespace-pre-line {
-  white-space: pre-wrap;
-}
-.word-wrap-break-word {
-  word-wrap: break-word;
+.mat-heading-label {
+  font-weight: 600;
+  font-size: $font-size-h6;
+  letter-spacing: .92px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 1rem;
 }

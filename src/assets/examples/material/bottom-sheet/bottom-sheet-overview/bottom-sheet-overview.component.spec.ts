@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BottomSheetOverviewComponent } from './bottom-sheet-overview.component';
 
@@ -6,7 +6,7 @@ describe('BottomSheetOverviewComponent', () => {
   let component: BottomSheetOverviewComponent;
   let fixture: ComponentFixture<BottomSheetOverviewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BottomSheetOverviewComponent ]
     })

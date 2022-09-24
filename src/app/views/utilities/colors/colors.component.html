@@ -1,0 +1,16 @@
+<div class="m-8">
+  <div fxLayout="row wrap">
+    <div *ngFor="let c of (colors | keyvalue)" fxFlex="50">
+      <div class="m-8 mat-elevation-z1 rounded overflow-hidden">
+          <div
+          style="height: 64px"
+          class="{{ c.key }}-{{ shade.key }} {{ c.key }}-{{ shade.key }}-fg px-16 py-24"
+          *ngFor="let shade of (c.value | keyvalue)"
+        >
+          <span>BG Color Class .{{ c.key }}-{{ shade.key }}</span>
+          <span class="float-right">Text Color Class .{{ c.key }}-{{ shade.key }}-fg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

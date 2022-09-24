@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-tab-group',
@@ -9,7 +9,7 @@ import {FormControl} from '@angular/forms';
 export class DynamicTabGroupComponent implements OnInit {
 
   tabs = ['First', 'Second', 'Third'];
-  selected = new FormControl(0);
+  selected = new UntypedFormControl(0);
 
   constructor() { }
 

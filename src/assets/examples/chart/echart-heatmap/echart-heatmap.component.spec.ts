@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EchartHeatmapComponent } from './echart-heatmap.component';
 
@@ -6,7 +6,7 @@ describe('EchartHeatmapComponent', () => {
   let component: EchartHeatmapComponent;
   let fixture: ComponentFixture<EchartHeatmapComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EchartHeatmapComponent ]
     })
